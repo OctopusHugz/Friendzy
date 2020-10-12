@@ -26,9 +26,10 @@ CREATE TABLE IF NOT EXISTS cities (
     name VARCHAR(128) NOT NULL,
     state_id VARCHAR(60) NOT NULL,
     FOREIGN KEY (state_id) REFERENCES states (id)
+    );
 
 DROP TABLE IF EXISTS users;
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id varchar(60) PRIMARY KEY,
     email varchar(128) NOT NULL,
     password varchar(128) NOT NULL,
@@ -39,6 +40,6 @@ INSERT INTO users VALUES ('28328ecf-43d8-4cc1-9405-d288c8f6ef3e', 'charlotte.lan
 
 DROP TABLE IF EXISTS interests;
 CREATE TABLE interests (
-    id VARCHAR(60) PRIMARY KEY,
+    id Integer PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL
     );
