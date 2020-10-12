@@ -2,10 +2,9 @@
 """
 Contains the class DBStorage
 """
-
 from models.user import User
 from models.interest import Interest
-from models import Base
+from models.base_model import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
@@ -27,7 +26,12 @@ class DBStorage:
 
     def all(self, cls=None):
         """query on the current database session"""
-        pass
+        new_dict = {}
+        objs = self.__session.query(User).all()
+        for obj in objs:
+            key = obj.__class__.__name__ + '.' + obj.id
+            new_dict[key] = obj
+        return (new_dict)
 
     def new(self, obj):
         """add the object to the current database session"""
