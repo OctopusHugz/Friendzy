@@ -6,14 +6,14 @@ from models import Base
 
 
 user_interest = Table('user_interest', Base.metadata,
-                          Column('user_id', String(60),
-                                 ForeignKey('users.id', onupdate='CASCADE',
-                                            ondelete='CASCADE'),
-                                 primary_key=True),
-                          Column('interest_id', String(60),
-                                 ForeignKey('interests.id', onupdate='CASCADE',
-                                            ondelete='CASCADE'),
-                                 primary_key=True))
+                      Column('user_id', String(60),
+                             ForeignKey('users.id', onupdate='CASCADE',
+                                        ondelete='CASCADE'),
+                             primary_key=True),
+                      Column('interest_id', String(60),
+                             ForeignKey('interests.id', onupdate='CASCADE',
+                                        ondelete='CASCADE'),
+                             primary_key=True))
 
 
 class User(Base):
@@ -25,6 +25,5 @@ class User(Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
     interests = relationship("Interest",
-                                 secondary=user_interest,
-                                 viewonly=False)
-
+                             secondary=user_interest,
+                             viewonly=False)
