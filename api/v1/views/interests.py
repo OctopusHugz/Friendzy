@@ -28,8 +28,4 @@ def get_interests_name(name):
             result = storage.get(Interest, interest.to_dict().get("id"))
     if not result:
         abort(404)
-<<<<<<< HEAD
     return jsonify(result.to_dict())
-=======
-    return jsonify(user.to_dict())
->>>>>>> d51956198cf239bf848b8636aee5db2fbb629f66
