@@ -1,12 +1,27 @@
 #!/usr/bin/python
 """Interest class"""
 from sqlalchemy.sql.sqltypes import Integer
-from models.base_model import Base
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 
 
-class Interest(Base):
+class Interest(BaseModel, Base):
     """Representation of Interest """
     __tablename__ = 'interests'
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
+
+    number_intersts = 30
+    def __init__(self, *args, **kwargs):
+        """Initialization of Interest class"""
+        Interest.number_interests += 1
+        if kwargs:
+            for k, v in kwargs.items():
+                if k != "__class__":
+                    setattr(self, k, v)
+
+            if kwargs.get("id", None) is None:
+                self.id = number_interests
+        else:
+            self.id = number_interests
+            self.name = ""
