@@ -1,28 +1,35 @@
 #!/usr/bin/python3
 """ objects that handle all default RestFul API actions for Users """
-from models.user import User
+from models.interest import Interest
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify
 
 
-@app_views.route('/users', methods=['GET'], strict_slashes=False)
-def get_users():
+@app_views.route('/interests', methods=['GET'], strict_slashes=False)
+def get_interests():
     """
-    Retrieves the list of all user objects
-    or a specific user
+    Retrieves the list of all interest objects
+    or a specific interest
     """
-    all_users = storage.all(User).values()
-    list_users = []
-    for user in all_users:
-        list_users.append(user.to_dict())
-    return jsonify(list_users)
+    all_interests = storage.all(Interest).values()
+    list_interests = []
+    for interest in all_interests:
+        list_interests.append(interest.to_dict())
+    return jsonify(list_interests)
 
 
-@app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
-def get_user(user_id):
-    """ Retrieves an user """
-    user = storage.get(User, user_id)
-    if not user:
+@app_views.route('/interests/<name>', methods=['GET'], strict_slashes=False)
+def get_interests_name(name):
+    """ Retrieves an interest based on name"""
+    all_interests = storage.all(Interest).values()
+    for interest in all_interests:
+        if interest.to_dict().get("name") == name:
+            result = storage.get(Interest, interest.to_dict().get("id"))
+    if not result:
         abort(404)
+<<<<<<< HEAD
+    return jsonify(result.to_dict())
+=======
     return jsonify(user.to_dict())
+>>>>>>> d51956198cf239bf848b8636aee5db2fbb629f66
