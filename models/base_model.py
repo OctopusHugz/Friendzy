@@ -3,7 +3,7 @@
 Contains class BaseModel
 """
 
-from models import storage
+import models
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
@@ -18,9 +18,9 @@ class BaseModel:
 
     def save(self):
         """updates the attribute 'updated_at' with the current datetime"""
-        storage.new(self)
-        storage.save()
+        models.storage.new(self)
+        models.storage.save()
 
     def delete(self):
         """delete the current instance from the storage"""
-        storage.delete(self)
+        models.storage.delete(self)
