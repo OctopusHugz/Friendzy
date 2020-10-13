@@ -1,0 +1,9 @@
+@media (min-width:768px) {
+  .text-md-right {
+    text-align: left!important;
+  }
+}
+
+.card-deck {
+  margin: 0 auto;
+}
