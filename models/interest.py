@@ -1,5 +1,6 @@
 #!/usr/bin/python
 """Interest class"""
+import models
 from sqlalchemy.sql.sqltypes import Integer
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
@@ -11,10 +12,9 @@ class Interest(BaseModel, Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
 
-    number_intersts = 30
     def __init__(self, *args, **kwargs):
         """Initialization of Interest class"""
-        Interest.number_interests += 1
+        number_interests = models.storage.count(Interest) + 1
         if kwargs:
             for k, v in kwargs.items():
                 if k != "__class__":
