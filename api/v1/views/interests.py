@@ -3,7 +3,7 @@
 from models.user import User
 from models import storage
 from api.v1.views import app_views
-from flask import abort, jsonify, make_response, request
+from flask import abort, jsonify
 
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
@@ -25,5 +25,4 @@ def get_user(user_id):
     user = storage.get(User, user_id)
     if not user:
         abort(404)
-
     return jsonify(user.to_dict())
