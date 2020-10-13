@@ -27,10 +27,12 @@ class DBStorage:
     def all(self, cls=None):
         """query on the current database session"""
         new_dict = {}
-        objs = self.__session.query(User).all()
-        for obj in objs:
-            key = obj.__class__.__name__ + '.' + obj.id
-            new_dict[key] = obj
+        for clss in classes:
+            if cls is None or cls is classes[clss] or cls is clss:
+                objs = self.__session.query(classes[clss]).all()
+                for obj in objs:
+                    key = obj.__class__.__name__ + '.' + str(obj.id)
+                    new_dict[key] = obj
         return (new_dict)
 
     def new(self, obj):
@@ -62,7 +64,15 @@ class DBStorage:
         Returns the object based on the class name and its ID, or
         None if not found
         """
-        pass
+        if cls not in classes.values():
+            return None
+
+        all_cls = self.all(cls)
+        for value in all_cls.values():
+            if (value.id == id):
+                return value
+
+        return None
 
     def count(self, cls=None):
         """
