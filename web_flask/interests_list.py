@@ -16,15 +16,17 @@ def close_db(error):
 def interests_list():
     """ displays a HTML page with a list of interests """
     interests = storage.all(Interest).values()
-    interests = sorted(interests, key=lambda k: k.name)
+    interests = sorted(interests, key=lambda k: k.id)
     test_list = []
+    full_list = []
     i = 0
-    while i < 3:
+    while i < len(interests) - 1:
+        if i % 3 == 0 and i != 0:
+            full_list.append(test_list)
+            test_list = []
         test_list.append(interests[i])
         i += 1
-    # print(test_list)
-    ###CHANGE NAME OF HTML FILE AS NEEDED###
-    return render_template("c.html", interests=test_list)
+    return render_template("c.html", full_list=full_list)
 
 
 if __name__ == "__main__":
