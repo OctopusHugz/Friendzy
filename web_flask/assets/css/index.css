@@ -1,0 +1,44 @@
+@media (min-width: 768px) {
+  .text-md-right {
+    text-align: left !important;
+  }
+}
+
+.card-deck {
+  margin: 0 auto;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+a.btn.btn-primary {
+  margin-top: 20px;
+}
+
+a.btn.btn-secondary {
+  margin-top: 20px;
+  float: right;
+}
+
+@media screen and (max-width: 1000px) {
+  a.btn.btn-secondary {
+    margin-top: 20px;
+    float: left;
+  }
+}
+
+.carousel-multi-item {
+  display: flex;
+}
+
+.controls-top {
+  display: flex;
+  align-items: center;
+}
