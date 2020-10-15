@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="static/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
 </head>
 
 <body id="page-top">
@@ -78,7 +78,7 @@
                                         role="menu">
                                         <h6 class="dropdown-header">messages</h6>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar4.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="static/img/avatars/avatar4.jpeg">
                                                 <div class="bg-success status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -87,7 +87,7 @@
                                             </div>
                                         </a>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar2.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="static/img/avatars/avatar2.jpeg">
                                                 <div class="status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -96,7 +96,7 @@
                                             </div>
                                         </a>
                                         <a class="d-flex align-items-center dropdown-item" href="#">
-                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar3.jpeg">
+                                            <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="static/img/avatars/avatar3.jpeg">
                                                 <div class="bg-warning status-indicator"></div>
                                             </div>
                                             <div class="font-weight-bold">
@@ -110,7 +110,7 @@
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow" role="presentation">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">User Name</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">User Name</span><img class="border rounded-circle img-profile" src="static/img/avatars/avatar1.jpeg"></a>
                                     <div
                                         class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
                                         <a
@@ -160,7 +160,7 @@
 					  <div class="row">
 						<div class="col-md-4">
 						  <div class="card mb-2">
-							<img class="card-img-top" src="assets/img/hiking.jpg"
+							<img class="card-img-top" src="static/img/hiking.jpg"
 							  alt="Card image cap">
 							<div class="card-body">
 							  <h4 class="card-title">Archery</h4>
@@ -174,7 +174,7 @@
 
 						<div class="col-md-4 clearfix d-none d-md-block">
 						  <div class="card mb-2">
-							<img class="card-img-top" src="assets/img/fishing.jpg"
+							<img class="card-img-top" src="static/img/fishing.jpg"
 							  alt="Card image cap">
 							<div class="card-body">
 							  <h4 class="card-title">Beekeeping</h4>
@@ -188,7 +188,7 @@
 
 						<div class="col-md-4 clearfix d-none d-md-block">
 						  <div class="card mb-2">
-							<img class="card-img-top" src="assets/img/rock_climbing.jpg"
+							<img class="card-img-top" src="static/img/rock_climbing.jpg"
 							  alt="Card image cap">
 							<div class="card-body">
 							  <h4 class="card-title">Camping</h4>
@@ -206,13 +206,13 @@
 
 					<!--Second slide-->
 					<div class="carousel-item">
-
 						<div class="row">
+							{% for interest in interests %}
 							<div class="col-md-4">
 								<div class="card mb-2">
-									<img class="card-img-top" src="assets/img/hiking.jpg" alt="Card image cap">
+									<img class="card-img-top" src="static/img/hiking.jpg" alt="Card image cap">
 									<div class="card-body">
-										<h4 class="card-title">Computer Programming</h4>
+										<h4 class="card-title">{{ interest.name }}</h4>
 										<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
 													card's content.</p> -->
 										<a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
@@ -220,32 +220,33 @@
 									</div>
 								</div>
 							</div>
+							{% endfor %}
 
+							<!-- <div class="col-md-4 clearfix d-none d-md-block">
+								<div class="card mb-2">
+									<img class="card-img-top" src="static/img/fishing.jpg" alt="Card image cap">
+									<div class="card-body">
+										<h4 class="card-title">Darts</h4> -->
+										<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+													card's content.</p> -->
+										<!-- <a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
+										<a class="btn btn-secondary" href="#" role="button">More Info</a>
+									</div>
+								</div>
+							</div> -->
+<!-- 
 							<div class="col-md-4 clearfix d-none d-md-block">
 								<div class="card mb-2">
-									<img class="card-img-top" src="assets/img/fishing.jpg" alt="Card image cap">
+									<img class="card-img-top" src="static/img/rock_climbing.jpg" alt="Card image cap">
 									<div class="card-body">
-										<h4 class="card-title">Darts</h4>
+										<h4 class="card-title">Fashion</h4> -->
 										<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
 													card's content.</p> -->
-										<a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
+										<!-- <a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
 										<a class="btn btn-secondary" href="#" role="button">More Info</a>
 									</div>
 								</div>
-							</div>
-
-							<div class="col-md-4 clearfix d-none d-md-block">
-								<div class="card mb-2">
-									<img class="card-img-top" src="assets/img/rock_climbing.jpg" alt="Card image cap">
-									<div class="card-body">
-										<h4 class="card-title">Fashion</h4>
-										<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-													card's content.</p> -->
-										<a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
-										<a class="btn btn-secondary" href="#" role="button">More Info</a>
-									</div>
-								</div>
-							</div>
+							</div> -->
 						</div>
 
 					</div>
@@ -257,7 +258,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<div class="card mb-2">
-									<img class="card-img-top" src="assets/img/hiking.jpg" alt="Card image cap">
+									<img class="card-img-top" src="static/img/hiking.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h4 class="card-title">Hiking</h4>
 										<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -270,7 +271,7 @@
 
 							<div class="col-md-4 clearfix d-none d-md-block">
 								<div class="card mb-2">
-									<img class="card-img-top" src="assets/img/fishing.jpg" alt="Card image cap">
+									<img class="card-img-top" src="static/img/fishing.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h4 class="card-title">Fishing</h4>
 										<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -283,7 +284,7 @@
 
 							<div class="col-md-4 clearfix d-none d-md-block">
 								<div class="card mb-2">
-									<img class="card-img-top" src="assets/img/rock_climbing.jpg" alt="Card image cap">
+									<img class="card-img-top" src="static/img/rock_climbing.jpg" alt="Card image cap">
 									<div class="card-body">
 										<h4 class="card-title">Rock Climbing</h4>
 										<!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -320,10 +321,10 @@
         </footer>
     </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="static/js/theme.js"></script>
 </body>
 
 </html>
