@@ -34,3 +34,11 @@ a.btn.btn-secondary {
   }
 }
 
+.carousel-multi-item {
+  display: flex;
+}
+
+.controls-top {
+  display: flex;
+  align-items: center;
+}
