@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container my-4">
+
+    <!-- heading for carousel -->
+
+    <h2 class="text-center">Find your friends</h2>
+    <!-- <p class="font-weight-bold">Bootstrap carousel multiple items is an improved version of the standard bootstrap
+  carousel which allows you to put inside more than one element.</p>
+
+<p><strong>Detailed documentation and more examples of Bootstrap grid you can find in our <a href="https://mdbootstrap.com/docs/jquery/javascript/carousel/"
+      target="_blank">Bootstrap Carousel Docs</a>.</p> -->
+
+    <hr class="my-4">
+
+    <!--Carousel Wrapper-->
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+        <!--Controls-->
+        <div class="controls-top">
+            <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
+                    class="fa fa-chevron-left"></i></a>
+        </div>
+        <!--/.Controls-->
+
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+            <li data-target="#multi-item-example" data-slide-to="1"></li>
+            <li data-target="#multi-item-example" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+
+            <!--Slide template-->
+            {% for list in full_list %}
+            <div class="carousel-item">
+                <div class="row">
+                    {% for interest in list %}
+                    <div class="col-md-4">
+                        <div class="card mb-2">
+                            {% set image_string = 'static/img/interests/' ~ interest.id ~ '.jpg' %}
+                            <img class="card-img-top" src="{{ image_string }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ interest.name }}</h4>
+                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.</p> -->
+                                <a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
+                                <a class="btn btn-secondary" href="#" role="button">More Info</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            <!--Slide template-->
+
+        </div>
+        <!--/.Slides-->
+
+        <!--Controls-->
+        <div class="controls-top">
+            <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                    class="fa fa-chevron-right"></i></a>
+        </div>
+        <!--/.Controls-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+
+
+</div>
+{% endblock %}
