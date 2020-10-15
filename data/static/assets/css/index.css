@@ -1,9 +1,17 @@
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .text-md-right {
-    text-align: left!important;
+    text-align: left !important;
   }
 }
 
 .card-deck {
   margin: 0 auto;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.carousel-item.active {
+  display: flex;
 }
