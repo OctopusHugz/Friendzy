@@ -3,13 +3,7 @@
 <div class="container my-4">
 
     <!-- heading for carousel -->
-
     <h2 class="text-center">Find Friendz</h2>
-    <!-- <p class="font-weight-bold">Bootstrap carousel multiple items is an improved version of the standard bootstrap
-  carousel which allows you to put inside more than one element.</p>
-
-<p><strong>Detailed documentation and more examples of Bootstrap grid you can find in our <a href="https://mdbootstrap.com/docs/jquery/javascript/carousel/"
-      target="_blank">Bootstrap Carousel Docs</a>.</p> -->
 
     <hr class="my-4">
 
@@ -41,11 +35,10 @@
                     {% for interest in list %}
                     <div class="col-md-4">
                         <div class="card mb-2">
-                            {% set image_string = 'static/img/interests/' ~ interest.id ~ '.jpg' %}
-                            <img class="card-img-top" src="{{ image_string }}" alt="Card image cap">
+							<img class="card-img-top" src="{{ url_for('static', filename = 'img/interests/' ~ interest.id ~ '.jpg') }}" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title">{{ interest.name }}</h4>
-                                <a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
+                                <a class="btn btn-primary" href="http://127.0.0.1:5000/users_search/{{ interest.id }}" role="button">Find Friendz!</a>
                                 <a class="btn btn-secondary" href="#" role="button">More Info</a>
                             </div>
                         </div>

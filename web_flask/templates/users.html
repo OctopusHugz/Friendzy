@@ -34,11 +34,9 @@
 					{% for user in list %}
 					<div class="col-md-4">
 						<div class="card mb-2">
-							{% set image_string = 'static/img/users/' ~ user.id ~ '.jpg' %}
-							<img class="card-img-top" src="{{ image_string }}" alt="Card image cap">
+							<img class="card-img-top" src="{{ url_for('static', filename = 'img/users/' ~ user.id ~ '.jpg') }}" alt="Card image cap">
 							<div class="card-body">
-								{% set user_name = user.first_name + ' ' + user.last_name %}
-								<h4 class="card-title">{{ user_name }}</h4>
+								<h4 class="card-title">{{ user.first_name + ' ' + user.last_name }}</h4>
 								<a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
 								<a class="btn btn-secondary" href="#" role="button">More Info</a>
 							</div>
