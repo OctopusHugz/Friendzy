@@ -26,7 +26,7 @@ def interests_list():
             test_list = []
         test_list.append(interests[i])
         i += 1
-    return render_template("c.html", full_list=full_list)
+    return render_template("home.html", full_list=full_list)
 
 
 if __name__ == "__main__":
