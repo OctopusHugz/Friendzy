@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Starts a Flask Web Application """
 from models.interest import Interest
-from flask.json import jsonify
 from models import storage
 from flask import Flask, render_template
 import requests
@@ -38,7 +37,6 @@ def users_search_list(interest_id):
     """ displays a HTML page with a list of users """
     payload = '{"interests": [' + interest_id + ']}'
     users = requests.post('http://127.0.0.1:5001/api/v1/users_search', data=payload, headers={'Content-Type': 'application/json'}).json()
-    # print(users)
     test_list = []
     full_list = []
     i = 0
