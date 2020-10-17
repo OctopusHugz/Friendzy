@@ -40,15 +40,12 @@ def users_search_list(interest_id):
     test_list = []
     full_list = []
     i = 0
-    while i < len(users) - 1:
-        if i % 3 == 0 and i != 0:
+    while i < len(users):
+        test_list.append(users[i])
+        if len(test_list) == 3 or i == len(users) - 1:
             full_list.append(test_list)
             test_list = []
-        test_list.append(users[i])
         i += 1
-        if i == len(users) - 1:
-            test_list.append(users[i])
-            full_list.append(test_list)
     return render_template("users.html", full_list=full_list)
 
 
