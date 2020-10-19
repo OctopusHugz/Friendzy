@@ -36,7 +36,13 @@
 						<div class="card mb-2">
 							<img class="card-img-top" src="{{ url_for('static', filename = 'img/users/' ~ user.id ~ '.jpg') }}" alt="Card image cap">
 							<div class="card-body">
-								<h4 class="card-title">{{ user.first_name + ' ' + user.last_name }}</h4>
+								<h3 class="card-title">{{ user.first_name + ' ' + user.last_name }}</h3>
+								<h5>Interests</h5>
+								<ul>
+								{% for interest_name in user.interests %}
+									<li>{{ interest_name }}</li>
+								{% endfor %}
+								</ul>
 								<a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
 								<a class="btn btn-secondary" href="#" role="button">More Info</a>
 							</div>
