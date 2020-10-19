@@ -39,7 +39,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">{{ interest.name }}</h4>
 				<!-- Change href on server to 35.193.115.163/users_search/-->
-                                <a class="btn btn-primary" href={{ url_for('users_search_list/' ~ interest.id) }} role="button">Find Friendz!</a>
+                                <a class="btn btn-primary" href={{ url_for('users_search_list', interest_id=interest.id) }} role="button">Find Friendz!</a>
                                 <a class="btn btn-secondary" href="#" role="button">More Info</a>
                             </div>
                         </div>
