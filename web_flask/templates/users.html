@@ -34,17 +34,22 @@
 					{% for user in list %}
 					<div class="col-md-4">
 						<div class="card mb-2">
-							<img class="card-img-top" src="{{ url_for('static', filename = 'img/users/' ~ user.id ~ '.jpg') }}" alt="Card image cap">
+							<img class="card-img-top"
+								src="{{ url_for('static', filename = 'img/users/' ~ user.id ~ '.jpg') }}"
+								alt="Card image cap">
 							<div class="card-body">
 								<h3 class="card-title">{{ user.first_name + ' ' + user.last_name }}</h3>
 								<h5>Interests</h5>
 								<ul>
-								{% for interest_name in user.interests %}
+									{% for interest_name in user.interests %}
 									<li>{{ interest_name }}</li>
-								{% endfor %}
+									{% endfor %}
 								</ul>
-								<a class="btn btn-primary" href="#" role="button">Find Friendz!</a>
-								<a class="btn btn-secondary" href="#" role="button">More Info</a>
+								<div class="social-icons">
+									<a href="https://linkedin.com"><img src="{{ url_for('static', filename = 'img/icons/linkedin.png') }}"></a>
+									<a href="https://twitter.com"><img src="{{ url_for('static', filename = 'img/icons/twitter.png') }}"></a>
+									<a href="https://facebook.com"><img src="{{ url_for('static', filename = 'img/icons/facebook.png') }}"></a>
+								</div>
 							</div>
 						</div>
 					</div>
