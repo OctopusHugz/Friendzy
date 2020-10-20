@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'fonts/fontawesome-all.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}">
 	<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/icons/laugh-wink-solid.svg') }}" />
+	<link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -43,9 +44,9 @@
 							id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
 						<form
 							class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-							<div class="input-group"><input class="bg-light form-control border-0 small" type="text"
-									placeholder="Search for ...">
-								<div class="input-group-append"><button class="btn btn-primary py-0" type="button"><i
+							<div class="input-group"><input id="search_text" class="bg-light form-control border-0 small autocomplete" type="text"
+									placeholder="Search by interest...">
+								<div class="input-group-append"><button id="search_button" class="btn btn-primary py-0" type="button"><i
 											class="fas fa-search"></i></button></div>
 							</div>
 						</form>
@@ -180,8 +181,8 @@
 	<script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.min.js') }}"></script>
 	<script src="{{ url_for('static', filename = 'js/theme.js') }}"></script>
 	<script src="{{ url_for('static', filename = 'js/carousel.js') }}"></script>
-	<link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.min.css" rel="stylesheet"></link>
 	<script src="{{ url_for('static', filename = 'js/search.js') }}"></script>
+	<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 </body>
 
