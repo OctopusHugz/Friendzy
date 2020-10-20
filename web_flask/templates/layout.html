@@ -56,8 +56,8 @@
 								<div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu"
 									aria-labelledby="searchDropdown">
 									<form class="form-inline mr-auto navbar-search w-100">
-										<div class="input-group"><input class="bg-light form-control border-0 small"
-												type="text" placeholder="Search for ...">
+										<div class="input-group"><input class="bg-light autocomplete form-control border-0 small"
+												type="text" placeholder="Search ..." autocomplete="off">
 											<div class="input-group-append"><button class="btn btn-primary py-0"
 													type="button"><i class="fas fa-search"></i></button></div>
 										</div>
@@ -180,6 +180,9 @@
 	<script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.min.js') }}"></script>
 	<script src="{{ url_for('static', filename = 'js/theme.js') }}"></script>
 	<script src="{{ url_for('static', filename = 'js/carousel.js') }}"></script>
+	<link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.min.css" rel="stylesheet"></link>
+	<script src="{{ url_for('static', filename = 'js/search.js') }}"></script>
+	<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 </body>
 
 </html>
