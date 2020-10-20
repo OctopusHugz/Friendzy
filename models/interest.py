@@ -11,7 +11,7 @@ class Interest(BaseModel, Base):
     __tablename__ = 'interests'
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-    description = Column(String(1024), nullable=True)
+    description = Column(String(1024), nullable=False)
 
     def __init__(self, *args, **kwargs):
         """Initialization of Interest class"""
