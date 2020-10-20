@@ -10,7 +10,8 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'fonts/fontawesome-all.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}">
-	<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/icons/laugh-wink-solid.svg') }}" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="{{ url_for('static', filename = 'img/icons/laugh-wink-solid.svg') }}" />
 	<link href="https://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.min.css" rel="stylesheet">
 </head>
 
@@ -18,7 +19,8 @@
 	<div id="wrapper">
 		<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
 			<div class="container-fluid d-flex flex-column p-0">
-				<a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href={{ url_for('interests_list') }}>
+				<a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
+					href={{ url_for('interests_list') }}>
 					<div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink"></i></div>
 					<div class="sidebar-brand-text mx-3"><span>FRIENDZY</span></div>
 				</a>
@@ -42,16 +44,20 @@
 				<nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
 					<div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3"
 							id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-						<form
-							class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100">
-							<div class="input-group"><input id="search_text" class="bg-light form-control border-0 small autocomplete" type="text"
+						<form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100">
+							<div class="input-group"><input id="search_text"
+									class="bg-light form-control border-0 small autocomplete" type="text"
 									placeholder="Search by interest...">
-								<div class="input-group-append"><button id="search_button" class="btn btn-primary py-0" type="button"><i
-											class="fas fa-search"></i></button></div>
-								<div class="input-group-append"><button id="random_button" class="btn btn-secondary py-0" type="button"><i
-											class="fas fa-dice"></i> Roll the Dice</button></div>
+								<div class="input-group-append"><button id="search_button" class="btn btn-primary py-0"
+										type="button"><i class="fas fa-search"></i></button></div>
+								<!-- <div class="input-group-append"><button id="random_button" class="btn btn-secondary py-0" type="button"><i
+											class="fas fa-dice"></i> Roll the Dice</button></div> -->
 							</div>
 						</form>
+						<div>
+							<div class="input-group-append"><button id="random_button" class="btn btn-secondary py-0"
+									type="button"><i class="fas fa-dice"></i> Roll the Dice</button></div>
+						</div>
 						<ul class="nav navbar-nav flex-nowrap ml-auto">
 							<li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
 									data-toggle="dropdown" aria-expanded="false" href="#"><i
@@ -59,8 +65,9 @@
 								<div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu"
 									aria-labelledby="searchDropdown">
 									<form class="form-inline mr-auto navbar-search w-100">
-										<div class="input-group"><input class="bg-light autocomplete form-control border-0 small"
-												type="text" placeholder="Search ..." autocomplete="off">
+										<div class="input-group"><input
+												class="bg-light autocomplete form-control border-0 small" type="text"
+												placeholder="Search ..." autocomplete="off">
 											<div class="input-group-append"><button class="btn btn-primary py-0"
 													type="button"><i class="fas fa-search"></i></button></div>
 										</div>
@@ -92,7 +99,8 @@
 											<div><span class="small text-gray-500">October 8, 2020</span>
 												<p>BLANK acitivity has been removed click to see why</p>
 											</div>
-										</a><a class="text-center dropdown-item small text-gray-500" href="#">Show All
+										</a><a class="text-center dropdown-item small text-gray-500" href="#">Show
+											All
 											Alerts</a>
 									</div>
 								</div>
@@ -111,7 +119,8 @@
 												<div class="bg-success status-indicator"></div>
 											</div>
 											<div class="font-weight-bold">
-												<div class="text-truncate"><span>Do you still want to go golfing this
+												<div class="text-truncate"><span>Do you still want to go golfing
+														this
 														after noon?</span></div>
 												<p class="small text-gray-500 mb-0">Emily Something - 58m</p>
 											</div>
@@ -122,7 +131,8 @@
 												<div class="status-indicator"></div>
 											</div>
 											<div class="font-weight-bold">
-												<div class="text-truncate"><span>I have the photos that you ordered last
+												<div class="text-truncate"><span>I have the photos that you ordered
+														last
 														month!</span></div>
 												<p class="small text-gray-500 mb-0">Jae Black - 1d</p>
 											</div>
@@ -133,7 +143,8 @@
 												<div class="bg-warning status-indicator"></div>
 											</div>
 											<div class="font-weight-bold">
-												<div class="text-truncate"><span>Had a great time yesterday cant wait to
+												<div class="text-truncate"><span>Had a great time yesterday cant
+														wait to
 														do it again</span></div>
 												<p class="small text-gray-500 mb-0">Morgan Olive - 2d</p>
 											</div>

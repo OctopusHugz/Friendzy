@@ -40,9 +40,7 @@ def get_interests_by_id(interest_id):
     for interest in all_interests:
         int_id = str(interest.to_dict().get('id'))
         if int_id == interest_id:
-            print('Found the interest!!!')
             result = storage.get(Interest, interest.to_dict().get("id"))
-    print("Result is {}".format(result))
     if not result:
         abort(404)
     return jsonify(result.to_dict())

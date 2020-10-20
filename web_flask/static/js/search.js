@@ -54,9 +54,7 @@ $(document).ready(function () {
   });
   $('#random_button').click(function (e) {
     e.preventDefault();
-    const searchInterest = $('#search_text').val();
-    const index = Math.floor(Math.random() * 31);
-    const interestID = index + 1;
+    const interestID = Math.floor(Math.random() * 30) + 1;
     const url = 'http://127.0.0.1:5000/users_search/' + interestID;
     window.location.href = url;
   });
