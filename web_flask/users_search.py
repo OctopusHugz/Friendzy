@@ -37,7 +37,10 @@ def interests_list():
 def users_search_list(interest_id):
     """ displays a HTML page with a list of users """
     payload = '{"interests": [' + interest_id + ']}'
-    users = requests.post('http://127.0.0.1:5001/api/v1/users_search', data=payload, headers={'Content-Type': 'application/json'}).json()
+    users = requests.post('http://127.0.0.1:5001/api/v1/users_search',
+                          data=payload, headers={'Content-Type': 'application/json'}).json()
+    url = 'http://127.0.0.1:5001/api/v1/interests/' + interest_id
+    interest_name = requests.get(url).json().get('name')
     test_list = []
     full_list = []
     i = 0
@@ -47,7 +50,7 @@ def users_search_list(interest_id):
             full_list.append(test_list)
             test_list = []
         i += 1
-    return render_template("users.html", full_list=full_list)
+    return render_template("users.html", full_list=full_list, interest_name=interest_name)
 
 
 if __name__ == "__main__":

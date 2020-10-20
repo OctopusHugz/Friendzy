@@ -19,13 +19,30 @@ def get_interests():
     return jsonify(list_interests)
 
 
-@app_views.route('/interests/<name>', methods=['GET'], strict_slashes=False)
-def get_interests_name(name):
+# @app_views.route('/interests/<name>', methods=['GET'], strict_slashes=False)
+# def get_interests_name(name):
+#     """ Retrieves an interest based on name"""
+#     all_interests = storage.all(Interest).values()
+#     result = ""
+#     for interest in all_interests:
+#         if interest.to_dict().get("name") == name:
+#             result = storage.get(Interest, interest.to_dict().get("id"))
+#     if len(result) == 0:
+#         abort(404)
+#     return jsonify(result.to_dict())
+
+
+@app_views.route('/interests/<interest_id>', methods=['GET'], strict_slashes=False)
+def get_interests_by_id(interest_id):
     """ Retrieves an interest based on name"""
     all_interests = storage.all(Interest).values()
+    result = ""
     for interest in all_interests:
-        if interest.to_dict().get("name") == name:
+        int_id = str(interest.to_dict().get('id'))
+        if int_id == interest_id:
+            print('Found the interest!!!')
             result = storage.get(Interest, interest.to_dict().get("id"))
+    print("Result is {}".format(result))
     if not result:
         abort(404)
     return jsonify(result.to_dict())
