@@ -23,12 +23,13 @@ def interests_list():
     test_list = []
     full_list = []
     i = 0
-    while i < len(interests) - 1:
+    while i < len(interests):
         if i % 3 == 0 and i != 0:
             full_list.append(test_list)
             test_list = []
         test_list.append(interests[i])
         i += 1
+    full_list.append(test_list)
     return render_template("home.html", full_list=full_list)
 
 
