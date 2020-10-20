@@ -48,6 +48,3 @@ $('#search_button').click(function (e) {
     index++;
   });
 });
-// Get interest name when search button is clicked
-// Use interest name to get interest_id
-// Use interest_id in user_search/<int: interest_id> to return users
