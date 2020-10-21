@@ -6,9 +6,9 @@ from models.form import SignupForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 import requests
 from flask_cors import CORS
+import os
 app = Flask(__name__)
 cors = CORS(app, resources={r"": {"origins": "*"}})
-import os
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 
@@ -56,7 +56,6 @@ def login():
     )
 
 
-
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     """
@@ -88,4 +87,4 @@ def signup():
 
 if __name__ == "__main__":
     """ Main Function """
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5002, debug=True)
