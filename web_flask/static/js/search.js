@@ -43,7 +43,7 @@ $(document).ready(function () {
       const parsedInterest = searchInterest.charAt(0).toUpperCase() + searchInterest.slice(1);
       if (interest === parsedInterest) {
         const interestID = index + 1;
-        const url = 'http://127.0.0.1:5000/users_search/' + interestID;
+        const url = 'users_search/' + interestID;
         window.location.href = url;
       }
       index++;
@@ -59,7 +59,7 @@ $(document).ready(function () {
   $('#random_button').click(function (e) {
     e.preventDefault();
     const interestID = Math.floor(Math.random() * 30) + 1;
-    const url = 'http://127.0.0.1:5000/users_search/' + interestID;
+    const url = 'users_search/' + interestID;
     window.location.href = url;
   });
   // Interests below user cards are clickable links
@@ -70,7 +70,7 @@ $(document).ready(function () {
     interests.forEach(interest => {
       if (interest === searchInterest) {
         const interestID = index + 1;
-        const url = 'http://127.0.0.1:5000/users_search/' + interestID;
+	const url = 'users_search/' + interestID;
         window.location.href = url;
       }
       index++;

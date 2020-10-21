@@ -4,15 +4,7 @@ from models.user import User
 from models import storage
 from api.v1.views import app_views
 from flask import Flask, abort, jsonify, request
-from flask_cors import CORS
-app = Flask(__name__)
-cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
-
-@app.teardown_appcontext
-def close_db(error):
-    """ Remove the current SQLAlchemy Session """
-    storage.close()
 
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)

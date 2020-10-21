@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ holds class User"""
+from werkzeug.security import generate_password_hash, check_password_hash
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Table, Integer
 from sqlalchemy.orm import backref, relationship
@@ -44,3 +45,8 @@ class User(BaseModel, Base):
             password = ""
             first_name = ""
             last_name = ""
+        if self.password is not None:
+            self.password = generate_password_hash(self.password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
