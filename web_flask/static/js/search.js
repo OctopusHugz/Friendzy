@@ -40,7 +40,8 @@ $(document).ready(function () {
     const searchInterest = $('#search_text').val();
     let index = 0;
     interests.forEach(interest => {
-      if (interest === searchInterest) {
+      const parsedInterest = searchInterest.charAt(0).toUpperCase() + searchInterest.slice(1);
+      if (interest === parsedInterest) {
         const interestID = index + 1;
         const url = 'http://127.0.0.1:5000/users_search/' + interestID;
         window.location.href = url;
@@ -62,7 +63,7 @@ $(document).ready(function () {
     window.location.href = url;
   });
   // Interests below user cards are clickable links
-  $("button.link").click(function (e) {
+  $('button.link').click(function (e) {
     e.preventDefault();
     const searchInterest = $(this).attr('id');
     let index = 0;
