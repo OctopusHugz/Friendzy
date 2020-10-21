@@ -92,3 +92,8 @@ a.btn.btn-secondary {
 body {
   color: black;
 }
+
+button.link {
+  background:none;
+  border:none;
+}
