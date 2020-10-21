@@ -58,9 +58,9 @@ def user_profile():
     return render_template("profile.html")
 
 
-@app.route('/friends', strict_slashes=False, methods=['GET'])
-def user_friends():
-    return render_template("table.html")
+@app.route('/team', strict_slashes=False, methods=['GET'])
+def our_team():
+    return render_template("team.html")
 
 if __name__ == "__main__":
     """ Main Function """
