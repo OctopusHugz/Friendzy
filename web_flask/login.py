@@ -40,6 +40,7 @@ def login():
     GET requests serve sign-up page.
     POST requests validate form & user creation.
     """
+    name = ""
     form = SignupForm()
     email = form.email.data
     password = form.password.data
@@ -47,6 +48,8 @@ def login():
     for user in all.values():
         if email == user.email:
             if user.check_password(password):
+                requests.post('http://127.0.0.1:5000/layout/' + user.id,
+                          headers={'Content-Type': 'application/json'})
                 return redirect("http://127.0.0.1:5000/interests_list")
     if request.method == "POST":
         flash('invalid password or email')
