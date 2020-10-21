@@ -42,7 +42,7 @@
 								<h5>Interests</h5>
 								<ul>
 									{% for interest_name in user.interests %}
-									<li>{{ interest_name }}</li>
+									<li><button class="link" style="background:none;border:none;" id="{{ interest_name }}">{{ interest_name }}</button></li>
 									{% endfor %}
 								</ul>
 								<div class="social-icons">
