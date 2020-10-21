@@ -1,16 +1,14 @@
 #!/usr/bin/python3
 """ objects that handle all default RestFul API actions for Users """
-from flask.helpers import url_for
-from models.interest import Interest
 from models import storage
 from models.user import User
 from models.form import SignupForm
-from flask import Flask, render_template, abort, jsonify, flash, redirect
+from flask import Flask, render_template, flash, redirect, request, url_for
 import requests
 from flask_cors import CORS
-app = Flask(__name__)
-cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 import os
+app = Flask(__name__)
+cors = CORS(app, resources={r"": {"origins": "*"}})
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 
@@ -50,12 +48,12 @@ def login():
         if email == user.email:
             if user.check_password(password):
                 return redirect("http://127.0.0.1:5000/interests_list")
-    flash('invalid password or email')
+    if request.method == "POST":
+        flash('invalid password or email')
     return render_template(
         'login.html',
         form=form
     )
-
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -89,4 +87,4 @@ def signup():
 
 if __name__ == "__main__":
     """ Main Function """
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5003, debug=True)
