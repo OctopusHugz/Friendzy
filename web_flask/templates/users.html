@@ -3,7 +3,7 @@
 <div class="container my-4">
 
 	<!-- heading for carousel -->
-	<h2 class="text-center">New Friendz</h2>
+	<h2 class="text-center">New Friendz in {{ interest_name }}</h2>
 
 	<hr class="my-4">
 
@@ -42,7 +42,7 @@
 								<h5>Interests</h5>
 								<ul>
 									{% for interest_name in user.interests %}
-									<li>{{ interest_name }}</li>
+									<li><button class="link" id="{{ interest_name }}">{{ interest_name }}</button></li>
 									{% endfor %}
 								</ul>
 								<div class="social-icons">
