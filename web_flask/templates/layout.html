@@ -26,13 +26,14 @@
 				</a>
 				<hr class="sidebar-divider my-0">
 				<ul class="nav navbar-nav text-light" id="accordionSidebar">
-					<li class="nav-item" role="presentation"><a class="nav-link active" href={{ url_for('interests_list') }}><i
+					<li class="nav-item" role="presentation"><a class="nav-link active"
+							href={{ url_for('interests_list') }}><i
 								class="fas fa-running"></i><span>Activities</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link" href={{ url_for('user_profile') }}><i
 								class="fas fa-user"></i><span>Profile</span></a></li>
 					<li class="nav-item" role="presentation"></li>
-					<li class="nav-item" role="presentation"><a class="nav-link" href={{ url_for('user_friends') }}><i
-								class="fas fa-user-friends"></i><span>Friends</span></a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href={{ url_for('our_team') }}><i
+								class="fas fa-users"></i><span>Team</span></a></li>
 					<li class="nav-item" role="presentation"></li>
 				</ul>
 				<div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
@@ -50,8 +51,6 @@
 									placeholder="Search by interest...">
 								<div class="input-group-append"><button id="search_button" class="btn btn-primary py-0"
 										type="button"><i class="fas fa-search"></i></button></div>
-								<!-- <div class="input-group-append"><button id="random_button" class="btn btn-secondary py-0" type="button"><i
-											class="fas fa-dice"></i> Roll the Dice</button></div> -->
 							</div>
 						</form>
 						<div>
@@ -74,89 +73,6 @@
 									</form>
 								</div>
 							</li>
-							<li class="nav-item dropdown no-arrow mx-1" role="presentation">
-								<div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-										data-toggle="dropdown" aria-expanded="false" href="#"><span
-											class="badge badge-danger badge-counter">2</span><i
-											class="fas fa-bell fa-fw"></i></a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
-										role="menu">
-										<h6 class="dropdown-header">alerts center</h6>
-										<a class="d-flex align-items-center dropdown-item" href="#">
-											<div class="mr-3">
-												<div class="bg-primary icon-circle"><i
-														class="fas fa-file-alt text-white"></i></div>
-											</div>
-											<div><span class="small text-gray-500">October 6, 2020</span>
-												<p>A new Activity has been added!</p>
-											</div>
-										</a>
-										<a class="d-flex align-items-center dropdown-item" href="#">
-											<div class="mr-3">
-												<div class="bg-warning icon-circle"><i
-														class="fas fa-exclamation-triangle text-white"></i></div>
-											</div>
-											<div><span class="small text-gray-500">October 8, 2020</span>
-												<p>BLANK acitivity has been removed click to see why</p>
-											</div>
-										</a><a class="text-center dropdown-item small text-gray-500" href="#">Show
-											All
-											Alerts</a>
-									</div>
-								</div>
-							</li>
-							<li class="nav-item dropdown no-arrow mx-1" role="presentation">
-								<div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-										data-toggle="dropdown" aria-expanded="false" href="#"><i
-											class="fas fa-envelope fa-fw"></i><span
-											class="badge badge-danger badge-counter">3</span></a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
-										role="menu">
-										<h6 class="dropdown-header">messages</h6>
-										<a class="d-flex align-items-center dropdown-item" href="#">
-											<div class="dropdown-list-image mr-3"><img class="rounded-circle"
-													src="{{ url_for('static', filename = 'img/avatars/avatar4.jpeg') }}">
-												<div class="bg-success status-indicator"></div>
-											</div>
-											<div class="font-weight-bold">
-												<div class="text-truncate"><span>Do you still want to go golfing
-														this
-														after noon?</span></div>
-												<p class="small text-gray-500 mb-0">Emily Something - 58m</p>
-											</div>
-										</a>
-										<a class="d-flex align-items-center dropdown-item" href="#">
-											<div class="dropdown-list-image mr-3"><img class="rounded-circle"
-													src="{{ url_for('static', filename = 'img/avatars/avatar2.jpeg') }}">
-												<div class="status-indicator"></div>
-											</div>
-											<div class="font-weight-bold">
-												<div class="text-truncate"><span>I have the photos that you ordered
-														last
-														month!</span></div>
-												<p class="small text-gray-500 mb-0">Jae Black - 1d</p>
-											</div>
-										</a>
-										<a class="d-flex align-items-center dropdown-item" href="#">
-											<div class="dropdown-list-image mr-3"><img class="rounded-circle"
-													src="{{ url_for('static', filename = 'img/avatars/avatar3.jpeg') }}">
-												<div class="bg-warning status-indicator"></div>
-											</div>
-											<div class="font-weight-bold">
-												<div class="text-truncate"><span>Had a great time yesterday cant
-														wait to
-														do it again</span></div>
-												<p class="small text-gray-500 mb-0">Morgan Olive - 2d</p>
-											</div>
-										</a>
-										<a class="text-center dropdown-item small text-gray-500" href="#">Show All
-											Messages</a>
-									</div>
-								</div>
-								<div class="shadow dropdown-list dropdown-menu dropdown-menu-right"
-									aria-labelledby="alertsDropdown"></div>
-							</li>
-							<div class="d-none d-sm-block topbar-divider"></div>
 							<li class="nav-item dropdown no-arrow" role="presentation">
 								<div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
 										data-toggle="dropdown" aria-expanded="false" href="#"><span
