@@ -29,12 +29,10 @@ def register():
     """
     form = SignupForm()
     return render_template(
-        'test.html',
-        title='Create an Account.',
-        form=form,
-        template='signup-page',
-        body="Sign up for a user account."
+        'register.html',
+        form=form
     )
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -51,15 +49,11 @@ def login():
     for user in all.values():
         if email == user.email:
             if user.check_password(password):
-                flash('Success')
                 return redirect("http://127.0.0.1:5000/interests_list")
     flash('invalid password or email')
     return render_template(
-        'test_2.html',
-        title='Sign in.',
-        form=form,
-        template='signin-page',
-        body="Sign into user account"
+        'login.html',
+        form=form
     )
 
 
@@ -84,19 +78,13 @@ def signup():
         if new.email == user.email:
             flash('A user already exists with that email address.')
             return render_template(
-                'test.html',
-                title='Create an Account.',
-                form=form,
-                template='signup-page',
-                body="Sign up for a user account."
+                'register.html',
+                form=form
                 )
     new.save()
     return render_template(
-        'test_2.html',
-        title='Sign in.',
-        form=form,
-        template='signin-page',
-        body="Sign into user account"
+        'login.html',
+        form=form
     )
 
 if __name__ == "__main__":
