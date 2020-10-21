@@ -94,6 +94,10 @@ body {
 }
 
 button.link {
-  background:none;
-  border:none;
+  background: none;
+  border: none;
+}
+
+button.link:hover {
+  opacity: 0.7;
 }

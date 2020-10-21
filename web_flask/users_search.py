@@ -53,6 +53,15 @@ def users_search_list(interest_id):
     return render_template("users.html", full_list=full_list, interest_name=interest_name)
 
 
+@app.route('/profile', strict_slashes=False, methods=['GET'])
+def user_profile():
+    return render_template("profile.html")
+
+
+@app.route('/friends', strict_slashes=False, methods=['GET'])
+def user_friends():
+    return render_template("table.html")
+
 if __name__ == "__main__":
     """ Main Function """
     app.run(host='0.0.0.0', port=5000, debug=True)
