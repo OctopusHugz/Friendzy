@@ -18,6 +18,15 @@
 --
 -- Table structure for table `cities`
 --
+drop database if exists friendzy_dev_db;
+CREATE DATABASE IF NOT EXISTS friendzy_dev_db;
+CREATE USER IF NOT EXISTS 'friendzy_dev'@'localhost';
+SET PASSWORD FOR 'friendzy_dev'@'localhost' = 'friendzy_pwd';
+GRANT ALL ON `friendzy_dev_db`.* TO 'friendzy_dev'@'localhost';
+GRANT SELECT ON `performance_schema`.* TO 'friendzy_dev'@'localhost';
+FLUSH PRIVILEGES;
+
+USE friendzy_dev_db;
 
 DROP TABLE IF EXISTS `cities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
