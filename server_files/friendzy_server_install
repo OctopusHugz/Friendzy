@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# configures a new Ubuntu machine
+
+# install nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo service nginx restart
+# set firewall rules
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw enable
+# install MySQL server
+sudo apt -y install mysql-server
+#####################################
+# Run this for fresh MySQL installs #
+# sudo mysql_secure_installation    #
+#####################################
+#install pip3
+sudo apt-get -y install python3-pip
+# install MySQLdb
+sudo apt-get -y install python3-dev
+sudo apt-get -y install libmysqlclient-dev
+sudo apt-get -y install zlib1g-dev
+sudo pip3 install mysqlclient
+# install SQLAlchemy, Flask, flask_cors, gunicorn
+sudo pip3 install SQLAlchemy
+sudo pip3 install Flask
+sudo pip3 install flask_cors
+sudo pip3 install gunicorn
+# install email_validator, flask-wtf
+sudo pip3 install email_validator
+sudo pip3 install flask-wtf
