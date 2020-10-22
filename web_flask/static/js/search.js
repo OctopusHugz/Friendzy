@@ -2,7 +2,7 @@ const interests = [
   'Archery',
   'Beekeeping',
   'Camping',
-  'Computer Programming',
+  'Computer programming',
   'Darts',
   'Fashion',
   'Gaming',
@@ -14,19 +14,19 @@ const interests = [
   'Lockpicking',
   'Magic',
   'Marbles',
-  'Mountain Biking',
-  'Mushroom Hunting',
+  'Mountain biking',
+  'Mushroom hunting',
   'Painting',
   'Parkour',
-  'Rock Climbing',
-  'Roller Derby',
+  'Rock climbing',
+  'Roller derby',
   'Running',
   'Sailing',
   'Skiing',
   'Snowboarding',
   'Speedcubing',
-  'Tai Chi',
-  'Ultimate Disc',
+  'Tai chi',
+  'Ultimate disc',
   'Whittling',
   'Yoga'
 ];
@@ -43,7 +43,12 @@ $(document).ready(function () {
       const parsedInterest = searchInterest.charAt(0).toUpperCase() + searchInterest.slice(1);
       if (interest === parsedInterest) {
         const interestID = index + 1;
-        const url = 'users_search/' + interestID;
+        let url = '';
+        if (window.location.hostname.slice(0, 3) === '127') {
+          url = interestID;
+        } else {
+          url = 'users_search/' + interestID;
+        }
         window.location.href = url;
       }
       index++;
@@ -51,6 +56,7 @@ $(document).ready(function () {
   });
   // Allow pressing enter to execute code above
   $('#search_text').keyup(function (e) {
+    e.preventDefault();
     if (e.which === 13) {
       $('#search_button').click();
     }
@@ -59,7 +65,12 @@ $(document).ready(function () {
   $('#random_button').click(function (e) {
     e.preventDefault();
     const interestID = Math.floor(Math.random() * 30) + 1;
-    const url = 'users_search/' + interestID;
+    let url = '';
+    if (window.location.hostname.slice(0, 3) === '127') {
+      url = interestID;
+    } else {
+      url = 'users_search/' + interestID;
+    }
     window.location.href = url;
   });
   // Interests below user cards are clickable links
@@ -70,7 +81,12 @@ $(document).ready(function () {
     interests.forEach(interest => {
       if (interest === searchInterest) {
         const interestID = index + 1;
-	const url = 'users_search/' + interestID;
+        let url = '';
+        if (window.location.hostname.slice(0, 3) === '127') {
+          url = interestID;
+        } else {
+          url = 'users_search/' + interestID;
+        }
         window.location.href = url;
       }
       index++;

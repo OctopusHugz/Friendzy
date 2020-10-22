@@ -3,8 +3,7 @@
 from models import storage
 from models.user import User
 from models.form import SignupForm
-from flask import Flask, render_template, flash, redirect, request, url_for
-import requests
+from flask import Flask, render_template, flash, redirect, request
 from flask_cors import CORS
 import os
 app = Flask(__name__)
@@ -47,6 +46,7 @@ def login():
     for user in all.values():
         if email == user.email:
             if user.check_password(password):
+                user_id = user.id
                 return redirect("http://127.0.0.1:5000/interests_list")
     if request.method == "POST":
         flash('invalid password or email')
