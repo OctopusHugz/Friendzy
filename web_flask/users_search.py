@@ -2,19 +2,14 @@
 """ Starts a Flask Web Application """
 from models.interest import Interest
 from models import storage
-from flask import Flask, render_template
+from models.user import User
+from flask import Flask, render_template, redirect
 import requests
 from flask_cors import CORS
 # from web_flask.login import user_id
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
-user_id = 'a3177f34-0c6e-434d-ab27-d54003043853'
-first_name = requests.get(
-    'http://127.0.0.1:5001/api/v1/users/' + user_id).json().get('first_name')
-last_name = requests.get(
-    'http://127.0.0.1:5001/api/v1/users/' + user_id).json().get('last_name')
-user_name = "{} {}".format(first_name, last_name)
-
+name = "User"
 
 @app.teardown_appcontext
 def close_db(error):
@@ -37,7 +32,7 @@ def interests_list():
         test_list.append(interests[i])
         i += 1
     full_list.append(test_list)
-    return render_template("home.html", full_list=full_list, user_name=user_name)
+    return render_template("home.html", full_list=full_list, name=name)
 
 
 @app.route('/users_search/<interest_id>', strict_slashes=False, methods=['POST', 'GET'])
@@ -57,7 +52,19 @@ def users_search_list(interest_id):
             full_list.append(test_list)
             test_list = []
         i += 1
+<<<<<<< HEAD
     return render_template("users.html", full_list=full_list, interest_name=interest_name, user_name=user_name)
+=======
+    return render_template("users.html", full_list=full_list, interest_name=interest_name, name=name)
+
+
+@app.route('/layout/<id>', strict_slashes=False, methods=['GET', 'POST'])
+def layout(id):
+    user = storage.get(User, id)
+    global name
+    name = user.first_name + ' ' + user.last_name
+
+>>>>>>> 02c41d7164772f48c350db3f71cc3c691f1a2b29
 
 
 @app.route('/profile', strict_slashes=False, methods=['GET'])
