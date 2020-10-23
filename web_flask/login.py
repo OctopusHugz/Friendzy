@@ -2,14 +2,9 @@
 """ objects that handle all default RestFul API actions for Users """
 from models import storage
 from models.user import User
-<<<<<<< HEAD
-from models.form import SignupForm
-from flask import Flask, render_template, flash, redirect, request
-=======
 from models.form import SignupForm, LoginForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 import requests
->>>>>>> 02c41d7164772f48c350db3f71cc3c691f1a2b29
 from flask_cors import CORS
 import os
 app = Flask(__name__)

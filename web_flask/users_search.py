@@ -52,9 +52,6 @@ def users_search_list(interest_id):
             full_list.append(test_list)
             test_list = []
         i += 1
-<<<<<<< HEAD
-    return render_template("users.html", full_list=full_list, interest_name=interest_name, user_name=user_name)
-=======
     return render_template("users.html", full_list=full_list, interest_name=interest_name, name=name)
 
 
@@ -64,7 +61,6 @@ def layout(id):
     global name
     name = user.first_name + ' ' + user.last_name
 
->>>>>>> 02c41d7164772f48c350db3f71cc3c691f1a2b29
 
 
 @app.route('/profile', strict_slashes=False, methods=['GET'])
