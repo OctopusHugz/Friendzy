@@ -72,6 +72,9 @@ def user_profile():
 def our_team():
     return render_template("team.html")
 
+@app.route('/landing', strict_slashes=False, methods=['GET'])
+def landing():
+    return render_template("landing.html")
 
 if __name__ == "__main__":
     """ Main Function """
