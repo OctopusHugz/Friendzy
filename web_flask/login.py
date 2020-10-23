@@ -48,8 +48,11 @@ def login():
     for user in all.values():
         if email == user.email:
             if user.check_password(password):
+                # requests.post('http://34.122.184.151/layout/' + user.id,
+                #           headers={'Content-Type': 'application/json'})
                 requests.post('http://127.0.0.1:5000/layout/' + user.id,
                           headers={'Content-Type': 'application/json'})
+                # return redirect("http://34.122.184.151/interests_list")
                 return redirect("http://127.0.0.1:5000/interests_list")
     if request.method == "POST":
         flash('invalid password or email')
