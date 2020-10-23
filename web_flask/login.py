@@ -19,6 +19,10 @@ def close_db(error):
     storage.close()
 
 
+@app.route('/landing', strict_slashes=False, methods=['GET'])
+def landing():
+    return render_template("landing.html")
+
 @app.route('/register', methods=['GET', 'POST'], strict_slashes=False)
 def register():
     """
