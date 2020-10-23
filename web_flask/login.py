@@ -2,7 +2,7 @@
 """ objects that handle all default RestFul API actions for Users """
 from models import storage
 from models.user import User
-from models.form import SignupForm
+from models.form import SignupForm, LoginForm
 from flask import Flask, render_template, flash, redirect, request, url_for
 import requests
 from flask_cors import CORS
@@ -41,7 +41,7 @@ def login():
     POST requests validate form & user creation.
     """
     name = ""
-    form = SignupForm()
+    form = LoginForm()
     email = form.email.data
     password = form.password.data
     all = storage.all(User)
