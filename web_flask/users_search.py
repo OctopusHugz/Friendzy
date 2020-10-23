@@ -64,12 +64,12 @@ def layout(id):
 
 @app.route('/profile', strict_slashes=False, methods=['GET'])
 def user_profile():
-    return render_template("profile.html")
+    return render_template("profile.html", name=name)
 
 
 @app.route('/team', strict_slashes=False, methods=['GET'])
 def our_team():
-    return render_template("team.html")
+    return render_template("team.html", name=name)
 
 if __name__ == "__main__":
     """ Main Function """
