@@ -2,12 +2,13 @@
 """ Starts a Flask Web Application """
 from models.interest import Interest
 from models import storage
-from flask import Flask, render_template
+from models.user import User
+from flask import Flask, render_template, redirect
 import requests
 from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
-
+name = "User"
 
 @app.teardown_appcontext
 def close_db(error):
@@ -30,7 +31,7 @@ def interests_list():
         test_list.append(interests[i])
         i += 1
     full_list.append(test_list)
-    return render_template("home.html", full_list=full_list)
+    return render_template("home.html", full_list=full_list, name=name)
 
 
 @app.route('/users_search/<interest_id>', strict_slashes=False, methods=['POST', 'GET'])
@@ -50,7 +51,15 @@ def users_search_list(interest_id):
             full_list.append(test_list)
             test_list = []
         i += 1
-    return render_template("users.html", full_list=full_list, interest_name=interest_name)
+    return render_template("users.html", full_list=full_list, interest_name=interest_name, name=name)
+
+
+@app.route('/layout/<id>', strict_slashes=False, methods=['GET', 'POST'])
+def layout(id):
+    user = storage.get(User, id)
+    global name
+    name = user.first_name + ' ' + user.last_name
+    
 
 
 @app.route('/profile', strict_slashes=False, methods=['GET'])
