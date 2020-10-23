@@ -79,7 +79,7 @@ $(document).ready(function () {
     const searchInterest = $(this).attr('id');
     let index = 0;
     interests.forEach(interest => {
-      if (interest === searchInterest) {
+      if (interest.toUpperCase() === searchInterest.toUpperCase()) {
         const interestID = index + 1;
         let url = '';
         if (window.location.hostname.slice(0, 3) === '127') {

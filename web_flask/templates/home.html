@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="container my-4">
+<div class="container my-4 card-carousel">
 
     <!-- heading for carousel -->
     <h2 class="text-center">Find Friendz</h2>
@@ -33,7 +33,7 @@
             <div class="carousel-item">
                 <div class="row">
                     {% for interest in list %}
-                    <div class="col-md-4">
+                    <div class="col-md-4 interest-card-wrapper">
                         <div class="card mb-2">
 							<!-- Change href on server to 35.193.115.163/users_search/-->
 							<a class="interest-card" href="{{ url_for('users_search_list', interest_id=interest.id) }}">
