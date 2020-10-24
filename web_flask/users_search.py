@@ -69,7 +69,16 @@ def user_profile():
 
 @app.route('/team', strict_slashes=False, methods=['GET'])
 def our_team():
-    return render_template("team.html", name=name)
+    # get all users *create a team model as super stretch*
+    users = storage.all(User).values()
+    team_list = []
+    # Loop through users and find team member column set to true
+    for user in users:
+        if user.team_member:
+            team_list.append(user)
+    # Sort team members by last name
+    team_list = sorted(team_list, key=lambda k: k.last_name)
+    return render_template("team.html", team_list=team_list, name=name)
 
 if __name__ == "__main__":
     """ Main Function """
