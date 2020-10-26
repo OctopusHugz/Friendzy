@@ -1,12 +1,6 @@
-# Friendzy
+# Friendzy[Friendzy](https://friendzfor.me/)
 ### *A true social experience*
 ![Friendzy Screen Shot](https://raw.githubusercontent.com/veeteeran/Friendzy/master/web_flask/static/img/Friendzy_Screenshot.png)
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-* [About the Project](#about-the-project)
-* [Built With](#built-with)
-* [Contributors](#contributors)
 ---
 <!-- ABOUT THE PROJECT -->
 ## About Friendzy 
