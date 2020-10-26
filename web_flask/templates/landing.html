@@ -8,8 +8,9 @@
 	<meta name="description" content="A community based social experience.">
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-	<link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/landing.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/landing2.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/landing.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'fonts/fontawesome-all.min.css') }}">
 	<link rel="shortcut icon" type="image/x-icon"
 		href="{{ url_for('static', filename = 'img/icons/laugh-wink-solid.svg') }}" />
@@ -18,12 +19,29 @@
 <body>
 	<div>
 		<div class="masthead text-white text-center hero-image"
-			style="background:url(&quot;{{ url_for('static', filename = 'img/landing/friends_hiking.jpg') }}&quot;)no-repeat center center;background-size:cover;">
+			style="background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0)), url(&quot;{{ url_for('static', filename = 'img/landing/friends_hiking.jpg') }}&quot;); background-size: cover;">
 			<nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
-				<div class="container"><a class="navbar-brand" href="#">Friendzy</a><button data-toggle="collapse"
-						class="navbar-toggler" data-target="#navcol-1"></button>
-					<div class="collapse navbar-collapse" id="navcol-1"><a class="btn btn-primary ml-auto" role="button"
-							href="https://friendzfor.me/login">Sign In</a></div>
+				<div class="container">
+					<div>
+						<a class="navbar-brand" href="#">Friendzy</a><button data-toggle="collapse"
+							class="navbar-toggler" data-target="#navcol-1"></button>
+					</div>
+					<div class="collapse navbar-collapse" id="navcol-1">
+						<div>
+							<a class="" href="#features">Features</a>
+						</div>
+						<div>
+							<a class="" href="#about">About</a>
+						</div>
+						<div>
+							<a class="" href="#team">Team</a>
+						</div>
+						<div>
+							<a id="sign-in" class="btn btn-primary" role="button"
+								href="https://friendzfor.me/login">Sign
+								In</a>
+						</div>
+					</div>
 				</div>
 			</nav>
 			<div class="overlay"></div>
@@ -34,8 +52,12 @@
 					</div>
 					<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
 						<div class="form-row">
-							<div class="col-12 col-md-3 offset-lg-4"><a href="https://friendzfor.me/register"><button
+							<div class="col-12 col-md-3"><a href="https://friendzfor.me/register"><button
 										class="btn btn-primary btn-block btn-lg" type="submit">Sign up!</button></a>
+							</div>
+							<div class="col-12 col-md-3"><a href="https://friendzfor.me/interests_list"><button
+										class="btn btn-secondary btn-block btn-lg" type="submit">Try it
+										First!</button></a>
 							</div>
 						</div>
 					</div>
@@ -43,74 +65,140 @@
 			</div>
 		</div>
 	</div>
-	<section class="showcase">
+	<section class="showcase" id="features">
 		<div class="container-fluid p-0">
 			<div class="row no-gutters">
 				<div class="col-lg-6 order-lg-2 text-white showcase-img"
-					style="background-image:url(&quot;{{ url_for('static', filename = 'img/bg-showcase-1.jpg') }}&quot;);">
+					style="background-image:url(&quot;{{ url_for('static', filename = 'img/older_women.jpg') }}&quot;);">
 					<span></span></div>
 				<div class="col-lg-6 my-auto order-lg-1 showcase-text">
-					<h2>Fully Responsive Design</h2>
-					<p class="lead mb-0">When you use a theme created with Bootstrap, you know that the theme will
-						look
-						great on any device, whether it's a phone, tablet, or desktop the page will behave
-						responsively!
+					<h2>Easy to Use</h2>
+					<p class="lead mb-0">With a clean and simple user interface, Friendzy is easy to use for people of
+						all ages! We believe inclusivity is the key to building a strong community, and it's never too
+						late to make new friends!
 					</p>
 				</div>
 			</div>
 			<div class="row no-gutters">
 				<div class="col-lg-6 text-white showcase-img"
-					style="background-image:url(&quot;{{ url_for('static', filename = 'img/bg-showcase-2.jpg') }}&quot;);">
+					style="background-image:url(&quot;{{ url_for('static', filename = 'img/four_friends.jpg') }}&quot;);">
 					<span></span></div>
 				<div class="col-lg-6 my-auto order-lg-1 showcase-text">
-					<h2>Updated For Bootstrap 4</h2>
-					<p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading
-						the
-						way in mobile responsive web development! All of the themes are now using Bootstrap 4!</p>
+					<h2>Create Connections in Your Community</h2>
+					<p class="lead mb-0">Whether you've recently moved to a new city or you're looking to create
+						exciting new connections in your current one, Friendzy has you covered! Create real lasting
+						connections with the amazing people in your community!</p>
 				</div>
 			</div>
 			<div class="row no-gutters">
 				<div class="col-lg-6 order-lg-2 text-white showcase-img"
-					style="background-image:url(&quot;{{ url_for('static', filename = 'img/bg-showcase-3.jpg') }}&quot;);">
+					style="background-image:url(&quot;{{ url_for('static', filename = 'img/compass.jpg') }}&quot;);">
 					<span></span></div>
 				<div class="col-lg-6 my-auto order-lg-1 showcase-text">
-					<h2>Easy to Use &amp;&nbsp;Customize</h2>
-					<p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who
-						demand
-						some deeper customization options. Out of the box, just add your content and images, and
-						your
-						new landing page will be ready to go!</p>
+					<h2>Explore New Interests</h2>
+					<p class="lead mb-0">Friendzy boasts a wide variety of new interests to explore! Ever been
+						Gongoozling? Maybe you've always dreamt of sailing, but never had the opportunity to go. Don't
+						delay, your new favorite hobby awaits!</p>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section class="testimonials text-center bg-light">
+
+
+
+	<section class="testimonials text-center bg-light" id="about">
 		<div class="container">
-			<h2 class="mb-5">What people are saying...</h2>
+			<h2 class="mb-5">About Us</h2>
+			<div class="about-section">
+				<p>
+					The original idea for Friendzy began as a simple note on a phone a handful of years ago. The
+					inspiration was the realization of the toxicity of social media. Young people in today's society are
+					experiencing mental health issues at levels never seen before, with a lot of the damage attributable
+					to social media. We at Friendzy could see people were more disconnected than ever, and decided we
+					wanted to step in and change things.
+				</p>
+				<img src="{{ url_for('static', filename = 'img/friendzy_note.png') }}" alt="" style="margin-top: 2rem;">
+				<!-- Add Link to Project Repo here -->
+				<!-- <div>
+					<a href="https://github.com/veeteeran/Friendzy">Check out the code that makes Friendzy work!</a>
+				</div> -->
+				<div class="col-12 col-md-3" style="margin-top: 3rem;">
+					<a href="https://github.com/veeteeran/Friendzy">
+						<button id="repo" class="btn btn-primary btn-block btn-lg" type="submit">
+							<i class="fas fa-code"></i>
+							Source
+							Code <i class="fas fa-code"></i>
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<section class="testimonials text-center bg-light" id="team">
+		<div class="container">
+			<h2 class="mb-5">Meet the Friendzy Team!</h2>
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3"
-							src="{{ url_for('static', filename = 'img/testimonials-1.jpg') }}">
-						<h5>Margaret E.</h5>
-						<p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+					<div class="mx-auto testimonial-item mb-5 mb-lg-0">
+						<a href="https://github.com/GunterPearson">
+							<img class="rounded-circle img-fluid mb-3"
+								src="{{ url_for('static', filename = 'img/users/gunter.jpg') }}">
+						</a>
+						<h5>Gunter Pearson</h5>
+						<div class="social-icons">
+							<a href="https://www.linkedin.com/in/gunter-pearson-0611b81a1/"><img
+									src="{{ url_for('static', filename = 'img/icons/linkedin.png') }}"
+									style="box-shadow: none;"></a>
+							<a href="https://twitter.com/gunterpearson"><img
+									src="{{ url_for('static', filename = 'img/icons/twitter.png') }}"
+									style="box-shadow: none;"></a>
+							<a href="https://github.com/GunterPearson"><img
+									src="{{ url_for('static', filename = 'img/icons/github.png') }}"
+									style="box-shadow: none;"></a>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3"
-							src="{{ url_for('static', filename = 'img/testimonials-2.jpg') }}">
-						<h5>Fred S.</h5>
-						<p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots
-							of
-							super nice landing pages."</p>
+					<div class="mx-auto testimonial-item mb-5 mb-lg-0">
+						<a href="https://github.com/OctopusHugz">
+							<img class="rounded-circle img-fluid mb-3"
+								src="{{ url_for('static', filename = 'img/users/colson.jpg') }}">
+						</a>
+						<h5>Colson Scott</h5>
+						<div class="social-icons">
+							<a href="https://www.linkedin.com/in/colson-scott/"><img
+									src="{{ url_for('static', filename = 'img/icons/linkedin.png') }}"
+									style="box-shadow: none;"></a>
+							<a href="https://twitter.com/OctopusHugz"><img
+									src="{{ url_for('static', filename = 'img/icons/twitter.png') }}"
+									style="box-shadow: none;"></a>
+							<a href="https://github.com/OctopusHugz"><img
+									src="{{ url_for('static', filename = 'img/icons/github.png') }}"
+									style="box-shadow: none;"></a>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3"
-							src="{{ url_for('static', filename = 'img/testimonials-3.jpg') }}">
-						<h5>Sarah W.</h5>
-						<p class="font-weight-light mb-0">"Thanks so much for making these free resources available
-							to
-							us!"</p>
+					<div class="mx-auto testimonial-item mb-5 mb-lg-0">
+						<a href="https://github.com/veeteeran">
+							<img class="rounded-circle img-fluid mb-3"
+								src="{{ url_for('static', filename = 'img/users/viet.jpg') }}">
+						</a>
+						<h5>Viet Tran</h5>
+						<div class="social-icons">
+							<a href="https://www.linkedin.com/in/viet-tran-2881bb1a1/"><img
+									src="{{ url_for('static', filename = 'img/icons/linkedin.png') }}"
+									style="box-shadow: none;"></a>
+							<a href="https://twitter.com/veeteeran"><img
+									src="{{ url_for('static', filename = 'img/icons/twitter.png') }}"
+									style="box-shadow: none;"></a>
+							<a href="https://github.com/veeteeran"><img
+									src="{{ url_for('static', filename = 'img/icons/github.png') }}"
+									style="box-shadow: none;"></a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -126,7 +214,7 @@
 				</div>
 				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
 					<div class="form-row">
-						<div class="col-12 col-md-3 offset-lg-4"><a href="https://friendzfor.me/register"><button
+						<div class="col-12 col-md-3"><a href="https://friendzfor.me/register"><button
 									class="btn btn-primary btn-block btn-lg" type="submit">Sign up!</button></a>
 						</div>
 					</div>
@@ -136,26 +224,9 @@
 	</section>
 	<footer class="footer bg-light">
 		<div class="container">
-			<div class="row">
+			<div class="row" style="display: flex; justify-content: center;">
 				<div class="col-lg-6 my-auto h-100 text-center text-lg-left">
-					<!-- <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="#">About</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Contact</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
-                        <li class="list-inline-item"><span>⋅</span></li>
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                    </ul> -->
-					<p class="text-muted small mb-4 mb-lg-0">© Friendzy 2020. All Rights Reserved.</p>
-				</div>
-				<div class="col-lg-6 my-auto h-100 text-center text-lg-right">
-					<ul class="list-inline mb-0">
-						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a>
-						</li>
-					</ul>
+					<p class="text-muted small mb-4 mb-lg-0 text-center">© Friendzy 2020. All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>
