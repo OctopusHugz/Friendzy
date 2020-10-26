@@ -109,5 +109,16 @@ button.link:hover {
 
 .interest-card-wrapper {
   display: flex;
-  flex: 1;
+  /* flex: 1; */
+}
+
+.interest-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 972px) {
+  .desktop-only {
+    display: none;
+  }
 }

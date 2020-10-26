@@ -76,6 +76,23 @@ def our_team():
 def landing():
     return render_template("landing.html")
 
+
+@app.route('/alt', strict_slashes=False, methods=['GET'])
+def alt_home():
+    interests = storage.all(Interest).values()
+    interests = sorted(interests, key=lambda k: k.id)
+    test_list = []
+    full_list = []
+    i = 0
+    while i < len(interests):
+        if i % 3 == 0 and i != 0:
+            full_list.append(test_list)
+            test_list = []
+        test_list.append(interests[i])
+        i += 1
+    full_list.append(test_list)
+    return render_template("alt.html", full_list=full_list, name=name)
+
 if __name__ == "__main__":
     """ Main Function """
     app.run(host='0.0.0.0', port=5000, debug=True)
