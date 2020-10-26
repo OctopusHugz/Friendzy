@@ -92,12 +92,6 @@ def signup():
                     'register.html',
                     form=form
                     )
-        # if form.confirm.data != form.password.data:
-        #     flash('Password must match')
-        #     return render_template(
-        #             'register.html',
-        #             form=form
-        #             )
         new.save()
         return render_template(
             'login.html',
