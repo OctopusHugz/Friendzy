@@ -1,9 +1,6 @@
-# Friendzy 
-
-Friendzy is an app that helps people connect with others who share the same interests and activities.
-
-Friendzy is meant to be the bridge to connect people and help create real relationships. We want you to use the app to meet and then it's up to you.
-
+# Friendzy
+![Friendzy Screen Shot](https://raw.githubusercontent.com/veeteeran/Friendzy/master/web_flask/static/img/Friendzy_Screenshot.png)
+### *A true social experience*
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
@@ -12,9 +9,12 @@ Friendzy is meant to be the bridge to connect people and help create real relati
 * [Contributors](#contributors)
 ---
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About Friendzy 
 
-![Friendzy Screen Shot](https://github.com/veeteeran/Friendzy/tree/master/web_flask/static/img/Friendzy_Screenshot.png)
+Friendzy is an app to find Friendz who share interests and activities. It is meant to be the bridge to connect people and help create real relationships.
+
+This is a portfolio project for Holberton School. Special thanks to Derek Webb for advising us.
+
 ---
 ## Built With :wrench:
 * [Python](https://www.python.org/)
