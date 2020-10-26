@@ -3,11 +3,15 @@
 from models.interest import Interest
 from models import storage
 from models.user import User
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request, flash, jsonify
+from models.form import UserForm
 import requests
+import os
 from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 name = "User"
 
 @app.teardown_appcontext
@@ -62,14 +66,54 @@ def layout(id):
     
 
 
-@app.route('/profile', strict_slashes=False, methods=['GET'])
+@app.route('/profile', strict_slashes=False, methods=['GET', 'POST'])
 def user_profile():
-    return render_template("profile.html", name=name)
+    form = UserForm()
+    if request.method == "POST":
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+        email = form.email.data
+        password = form.password.data
+        new_email = form.new_email.data
+        new_password = form.new_password.data
+        all = storage.all(User)
+        for user in all.values():
+            if email == user.email:
+                if user.check_password(password):
+                    if user.email == new_email:
+                        user.password = new_password
+                        user.first_name = first_name
+                        user.last_name = last_name
+                        user.update()
+                        flash('User Settings updated')
+                        return render_template("profile.html", form=form, name=name)
+                    for new in all.values():
+                        if new_email == new.email:
+                            flash('A user already exists with that email address.')
+                            return render_template("profile.html", form=form, name=name)
+                    user.email = new_email
+                    user.password = new_password
+                    user.first_name = first_name
+                    user.last_name = last_name
+                    user.update()
+                    flash('User Settings updated')
+                    return render_template("profile.html", form=form, name=name)
+        flash('invalid password or email')
+    return render_template("profile.html", form=form, name=name)
 
 
 @app.route('/team', strict_slashes=False, methods=['GET'])
 def our_team():
-    return render_template("team.html", name=name)
+    # get all users *create a team model as super stretch*
+    users = storage.all(User).values()
+    team_list = []
+    # Loop through users and find team member column set to true
+    for user in users:
+        if user.team_member:
+            team_list.append(user)
+    # Sort team members by last name
+    team_list = sorted(team_list, key=lambda k: k.last_name)
+    return render_template("team.html", team_list=team_list, name=name)
 
 if __name__ == "__main__":
     """ Main Function """

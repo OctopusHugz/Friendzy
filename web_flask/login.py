@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ objects that handle all default RestFul API actions for Users """
+from sqlalchemy.sql.sqltypes import String
 from models import storage
 from models.user import User
 from models.form import SignupForm, LoginForm
@@ -52,13 +53,13 @@ def login():
     for user in all.values():
         if email == user.email:
             if user.check_password(password):
-                #requests.post('http://127.0.0.1:5000/layout/' + user.id,
-                #           headers={'Content-Type': 'application/json'})
+                requests.post('http://127.0.0.1:5000/layout/' + user.id,
+                          headers={'Content-Type': 'application/json'})
                 #requests.post('http://127.0.0.1:5000/layout/' + user.id,
                 #          headers={'Content-Type': 'application/json', 
                 #                    'User-Agent': 'viet'})
-                return redirect("https://friendzfor.me/interests_list")
-                #return redirect("http://127.0.0.1:5000/interests_list")
+                # return redirect("https://friendzfor.me/interests_list")
+                return redirect("http://127.0.0.1:5000/interests_list")
     if request.method == "POST":
         flash('invalid password or email')
     return render_template(
@@ -76,25 +77,31 @@ def signup():
     POST requests validate form & user creation.
     """
     form = SignupForm()
-    new = User(
-                first_name=form.first_name.data,
-                last_name=form.last_name.data,
-                email=form.email.data,
-                password=form.password.data
-                )
-    all = storage.all(User)
-    for user in all.values():
-        if new.email == user.email:
-            flash('A user already exists with that email address.')
-            return render_template(
-                'register.html',
-                form=form
-                )
-    new.save()
-    return render_template(
-        'login.html',
-        form=form
-    )
+    if request.method == 'POST' and form.validate():
+        new = User(
+                    first_name=form.first_name.data,
+                    last_name=form.last_name.data,
+                    email=form.email.data,
+                    password=form.password.data
+                    )
+        all = storage.all(User)
+        for user in all.values():
+            if new.email == user.email:
+                flash('A user already exists with that email address.')
+                return render_template(
+                    'register.html',
+                    form=form
+                    )
+        new.save()
+        return render_template(
+            'login.html',
+            form=form
+        )
+    for key, value in form.errors.items():
+        string = str(value).strip("[]'")
+        flash("'{}'    {}".format(key, string))
+        break
+    return render_template('register.html', form=form)
 
 if __name__ == "__main__":
     """ Main Function """

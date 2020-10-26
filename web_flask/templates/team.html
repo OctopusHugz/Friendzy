@@ -1,47 +1,31 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="container-fluid">
-	<h3 class="text-dark mb-4">Team</h3>
-	<div class="card shadow">
-		<div class="card-header py-3">
-			<p class="text-primary m-0 font-weight-bold">Employee Info</p>
-		</div>
-		<div class="card-body">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search"
-								class="form-control form-control-sm" aria-controls="dataTable"
-								placeholder="Search"></label></div>
+	<h3 class="text-dark mb-4 text-center">Friendzy Team</h3>
+	<div class="row">
+		{% for user in team_list %}
+		<div class="col-md-4">
+			<div class="card mb-2">
+				<img class="card-img-top"
+					src="{{ url_for('static', filename = 'img/users/' ~ user.id ~ '.jpg') }}"
+					alt="Card image cap">
+				<div class="card-body">
+					<h3 class="card-title">{{ user.first_name + ' ' + user.last_name }}</h3>
+					<h5>Interests</h5>
+					<ul>
+						{% for interest in user.interests %}
+						<li><button class="link" id="{{ interest.name }}">{{ interest.name }}</button></li>
+						{% endfor %}
+					</ul>
+					<div class="social-icons">
+						<a href="https://linkedin.com"><img src="{{ url_for('static', filename = 'img/icons/linkedin.png') }}"></a>
+						<a href="https://twitter.com"><img src="{{ url_for('static', filename = 'img/icons/twitter.png') }}"></a>
+						<a href="https://facebook.com"><img src="{{ url_for('static', filename = 'img/icons/facebook.png') }}"></a>
+					</div>
 				</div>
 			</div>
-			<div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-				<table class="table my-0" id="dataTable">
-					<thead>
-						<tr>
-							<th>Name</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr></tr>
-						<tr>
-							<td><img class="rounded-circle mr-2" width="30" height="30"
-									src="{{ url_for('static', filename = 'img/users/viet.jpg') }}">Viet Tran</td>
-						</tr>
-						<tr>
-							<td><img class="rounded-circle mr-2" width="30" height="30"
-									src="{{ url_for('static', filename = 'img/users/colson.jpg') }}">Colson Scott</td>
-						</tr>
-						<tr>
-							<td><img class="rounded-circle mr-2" width="30" height="30"
-									src="{{ url_for('static', filename = 'img/users/gunter.jpg') }}">Gunter Pearson</td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr></tr>
-					</tfoot>
-				</table>
-			</div>
 		</div>
+		{% endfor %}
 	</div>
 </div>
 {% endblock %}
