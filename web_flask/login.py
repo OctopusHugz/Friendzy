@@ -90,7 +90,6 @@ def signup():
                 'register.html',
                 form=form
                 )
-    print(new)
     new.save()
     return render_template(
         'login.html',
