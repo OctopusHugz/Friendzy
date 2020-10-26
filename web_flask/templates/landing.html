@@ -8,9 +8,9 @@
 	<meta name="description" content="A community based social experience.">
 	<link rel="stylesheet"
 		href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/landing.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/landing2.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/landing.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename = 'fonts/fontawesome-all.min.css') }}">
 	<link rel="shortcut icon" type="image/x-icon"
 		href="{{ url_for('static', filename = 'img/icons/laugh-wink-solid.svg') }}" />
@@ -20,10 +20,13 @@
 	<div>
 		<div class="masthead text-white text-center hero-image"
 			style="background-image: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0)), url(&quot;{{ url_for('static', filename = 'img/landing/friends_hiking.jpg') }}&quot;); background-size: cover;">
-			<nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+			<nav class="navbar navbar-light navbar-expand navigation-clean">
 				<div class="container">
 					<div>
-						<a class="navbar-brand" href="#">Friendzy</a><button data-toggle="collapse"
+						<a class="navbar-brand" href="https://friendzfor.me/interests_list"
+							style="color: white; width: 125px; display: flex; justify-content: space-between; align-items: center; margin-right: 0px;"><img
+								src="{{ url_for('static', filename = 'img/icons/laugh-wink-solid.svg') }}" alt=""
+								style="width: 32px; height: 32px;">Friendzy</a><button data-toggle="collapse"
 							class="navbar-toggler" data-target="#navcol-1"></button>
 					</div>
 					<div class="collapse navbar-collapse" id="navcol-1">
@@ -201,12 +204,12 @@
 		</div>
 	</section>
 	<section class="call-to-action text-white text-center"
-		style="background:url(&quot;{{ url_for('static', filename = 'img/bg-masthead.jpg') }}&quot;) no-repeat center center;background-size:cover;">
+		style="background:url(&quot;{{ url_for('static', filename = 'img/road8.jpg') }}&quot;) no-repeat center center; margin-left: auto; margin-right: auto;">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-9 mx-auto">
-					<h2 class="mb-4">Ready to get started? Sign up now!</h2>
+					<h2 class="mb-4">New friends and new adventures await!</h2>
 				</div>
 				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
 					<div class="form-row">

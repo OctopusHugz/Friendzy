@@ -4,7 +4,7 @@
 }
 
 .hero-container {
-  padding-top: 20vh;
+  padding-top: 15vh;
   color: white;
 }
 
@@ -51,4 +51,9 @@ div a:hover {
 
 #sign-in {
   margin-top: 0;
+}
+
+footer.footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
