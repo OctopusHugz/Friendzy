@@ -24,7 +24,7 @@ def close_db(error):
 def landing():
     return render_template("landing.html")
 
-@app.route('/register', methods=['GET', 'POST'], strict_slashes=False)
+@app.route('/register', methods=['GET'], strict_slashes=False)
 def register():
     """
     Retrieves the list of all interest objects
@@ -88,10 +88,7 @@ def signup():
         for user in all.values():
             if new.email == user.email:
                 flash('A user already exists with that email address.')
-                return render_template(
-                    'register.html',
-                    form=form
-                    )
+                return redirect(url_for('register'))
         new.save()
         return render_template(
             'login.html',
@@ -101,7 +98,7 @@ def signup():
         string = str(value).strip("[]'")
         flash("'{}'    {}".format(key, string))
         break
-    return render_template('register.html', form=form)
+    return redirect(url_for('register'))
 
 if __name__ == "__main__":
     """ Main Function """
