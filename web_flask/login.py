@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ objects that handle all default RestFul API actions for Users """
+from sqlalchemy.sql.sqltypes import String
 from models import storage
 from models.user import User
 from models.form import SignupForm, LoginForm
@@ -76,25 +77,37 @@ def signup():
     POST requests validate form & user creation.
     """
     form = SignupForm()
-    new = User(
-                first_name=form.first_name.data,
-                last_name=form.last_name.data,
-                email=form.email.data,
-                password=form.password.data
-                )
-    all = storage.all(User)
-    for user in all.values():
-        if new.email == user.email:
-            flash('A user already exists with that email address.')
-            return render_template(
-                'register.html',
-                form=form
-                )
-    new.save()
-    return render_template(
-        'login.html',
-        form=form
-    )
+    if request.method == 'POST' and form.validate():
+        new = User(
+                    first_name=form.first_name.data,
+                    last_name=form.last_name.data,
+                    email=form.email.data,
+                    password=form.password.data
+                    )
+        all = storage.all(User)
+        for user in all.values():
+            if new.email == user.email:
+                flash('A user already exists with that email address.')
+                return render_template(
+                    'register.html',
+                    form=form
+                    )
+        # if form.confirm.data != form.password.data:
+        #     flash('Password must match')
+        #     return render_template(
+        #             'register.html',
+        #             form=form
+        #             )
+        new.save()
+        return render_template(
+            'login.html',
+            form=form
+        )
+    for key, value in form.errors.items():
+        string = str(value).strip("[]'")
+        flash("'{}'    {}".format(key, string))
+        break
+    return render_template('register.html', form=form)
 
 if __name__ == "__main__":
     """ Main Function """
