@@ -1,4 +1,4 @@
-# Friendzy[Friendzy](https://friendzfor.me/)
+# [Friendzy](https://friendzfor.me/)
 ### *A true social experience*
 ![Friendzy Screen Shot](https://raw.githubusercontent.com/veeteeran/Friendzy/master/web_flask/static/img/Friendzy_Screenshot.png)
 ---
