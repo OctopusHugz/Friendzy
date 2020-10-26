@@ -1,14 +1,7 @@
 # Friendzy
 ![Friendzy Screen Shot](https://raw.githubusercontent.com/veeteeran/Friendzy/master/web_flask/static/img/Friendzy_Screenshot.png)
 ### *A true social experience*
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-* [About the Project](#about-the-project)
-* [Built With](#built-with)
-* [Contributors](#contributors)
 ---
-<!-- ABOUT THE PROJECT -->
 ## About Friendzy 
 
 Friendzy is an app to find Friendz who share interests and activities. It is meant to be the bridge to connect people and help create real relationships.
