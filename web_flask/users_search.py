@@ -70,13 +70,6 @@ def layout(id):
 def user_profile():
     form = UserForm()
     if request.method == "POST":
-        # print(form.first_name.data)
-        # print(form.last_name.data)
-        # print(form.csrf_token.data)
-        # print(form.email.data)
-        # print(form.password.data)
-        # print(form.new_email.data)
-        # print(form.new_password.data)
         first_name = form.first_name.data
         last_name = form.last_name.data
         email = form.email.data
