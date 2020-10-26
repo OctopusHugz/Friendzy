@@ -2,7 +2,7 @@
 """ holds class User"""
 from werkzeug.security import generate_password_hash, check_password_hash
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey, Table, Integer
+from sqlalchemy import Column, String, ForeignKey, Table, Integer, Boolean
 from sqlalchemy.orm import backref, relationship
 import uuid
 
@@ -26,6 +26,7 @@ class User(BaseModel, Base):
     password = Column(String(128), nullable=False)
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
+    team_member = Column(Boolean, unique=False, default=False, nullable=False)
     interests = relationship("Interest",
                              secondary=user_interest,
 					         viewonly=False)
