@@ -55,3 +55,46 @@ class LoginForm(FlaskForm):
     )
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Log In')
+
+
+class UserForm(FlaskForm):
+    """ User info form"""
+    first_name = StringField(
+        'First',
+        validators=[DataRequired()]
+    )
+    last_name = StringField(
+        'last',
+        validators=[DataRequired()]
+    )
+    email = StringField(
+        'Email',
+        validators=[
+            Length(min=6),
+            Email(message='Enter a valid email.'),
+            DataRequired()
+        ]
+    )
+    password = PasswordField(
+        'Password',
+        validators=[
+            DataRequired(),
+            Length(min=6, message='Select a stronger password.')
+        ]
+    )
+    new_email = StringField(
+        'Email',
+        validators=[
+            Length(min=6),
+            Email(message='Enter a valid email.'),
+            DataRequired()
+        ]
+    )
+    new_password = PasswordField(
+        'Password',
+        validators=[
+            DataRequired(),
+            Length(min=6, message='Select a stronger password.')
+        ]
+    )
+    submit = SubmitField('Register')

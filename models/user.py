@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ holds class User"""
 from werkzeug.security import generate_password_hash, check_password_hash
+import models
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Table, Integer, Boolean
 from sqlalchemy.orm import backref, relationship
@@ -48,6 +49,13 @@ class User(BaseModel, Base):
             last_name = ""
         if self.password is not None:
             self.password = generate_password_hash(self.password)
+
+    def update(self):
+        """updates the attribute 'updated_at' with the current datetime"""
+        if self.password is not None:
+            self.password = generate_password_hash(self.password)
+        models.storage.new(self)
+        models.storage.save()
 
     def check_password(self, password):
         return check_password_hash(self.password, password)

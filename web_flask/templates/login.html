@@ -34,28 +34,8 @@
                                     </div>
                                     <form method="POST" action="/login">
                                         {{ form.csrf_token }}
-                                        <div class="form-group">
-                                            <fieldset class="email">
-                                                {{ form.email(placeholder='Enter Email') }}
-                                                {% if form.email.errors %}
-                                                  <ul class="errors">
-                                                    {% for error in form.email.errors %}
-                                                      <li>{{ error }}</li>{% endfor %}
-                                                  </ul>
-                                                {% endif %}
-                                              </fieldset>
-                                        </div>
-                                        <div class="form-group">
-                                            <fieldset class="password">
-                                                {{ form.password(placeholder='Enter Password') }}
-                                                {% if form.password.errors %}
-                                                  <ul class="errors">
-                                                    {% for error in form.password.errors %}
-                                                      <li>{{ error }}</li>{% endfor %}
-                                                  </ul>
-                                                {% endif %}
-                                              </fieldset>
-                                        </div>
+                                        <div class="form-group"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email"></div>
+                                        <div class="form-group"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
