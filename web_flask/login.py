@@ -96,7 +96,7 @@ def signup():
                 flash('A user already exists with that email address.')
                 return render_template('register.html', form=form)
         new.save()
-        return redirect("https://friendzyfor.me/interests_list")
+        return redirect("http://friendzyfor.me/interests_list")
     return render_template('register.html')
 
 if __name__ == "__main__":
