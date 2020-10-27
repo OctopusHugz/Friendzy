@@ -77,7 +77,13 @@ def signup():
     POST requests validate form & user creation.
     """
     form = SignupForm()
-    if request.method == 'POST' and form.validate():
+    if request.method == 'POST':
+        if not form.validate():
+            for key, value in form.errors.items():
+                string = str(value).strip("[]'")
+                if key != "csrf_token":
+                    flash("'{}'    {}".format(key, string))
+                    return render_template('register.html', form=form)
         new = User(
                     first_name=form.first_name.data,
                     last_name=form.last_name.data,
@@ -88,17 +94,13 @@ def signup():
         for user in all.values():
             if new.email == user.email:
                 flash('A user already exists with that email address.')
-                return redirect(url_for('register'))
+                return render_template('register.html', form=form)
         new.save()
         return render_template(
             'login.html',
             form=form
         )
-    for key, value in form.errors.items():
-        string = str(value).strip("[]'")
-        flash("'{}'    {}".format(key, string))
-        break
-    return redirect(url_for('register'))
+    return render_template('register.html')
 
 if __name__ == "__main__":
     """ Main Function """
