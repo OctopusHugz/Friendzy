@@ -58,8 +58,8 @@ def login():
                 #requests.post('http://127.0.0.1:5000/layout/' + user.id,
                 #          headers={'Content-Type': 'application/json', 
                 #                    'User-Agent': 'viet'})
-                # return redirect("https://friendzfor.me/interests_list")
-                return redirect("http://127.0.0.1:5000/interests_list")
+                return redirect("https://friendzfor.me/interests_list")
+                #return redirect("http://127.0.0.1:5000/interests_list")
     if request.method == "POST":
         flash('invalid password or email')
     return render_template(
@@ -96,10 +96,7 @@ def signup():
                 flash('A user already exists with that email address.')
                 return render_template('register.html', form=form)
         new.save()
-        return render_template(
-            'login.html',
-            form=form
-        )
+        return redirect("https://friendzyfor.me/interests_list")
     return render_template('register.html')
 
 if __name__ == "__main__":
