@@ -58,8 +58,8 @@ def login():
                 #requests.post('http://127.0.0.1:5000/layout/' + user.id,
                 #          headers={'Content-Type': 'application/json', 
                 #                    'User-Agent': 'viet'})
-                # return redirect("https://friendzfor.me/interests_list")
-                return redirect("http://127.0.0.1:5000/interests_list")
+                return redirect("https://friendzfor.me/interests_list")
+                #return redirect("http://127.0.0.1:5000/interests_list")
     if request.method == "POST":
         flash('invalid password or email')
     return render_template(
