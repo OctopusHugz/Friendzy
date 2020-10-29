@@ -1,12 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="container-fluid">
+	{% for message in get_flashed_messages() %}
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+      </div>
+    {% endfor %}
 	<h3 class="text-dark mb-4">Profile</h3>
 	<div class="row mb-3">
 		<div class="col-lg-4">
 			<div class="card mb-3">
 				<div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4"
-						src="assets/img/dogs/image2.jpeg" width="160" height="160">
+						src="static/img/dogs/image2.jpeg" width="160" height="160">
 					<div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
 				</div>
 			</div>
@@ -51,30 +57,51 @@
 							<p class="text-primary m-0 font-weight-bold">User Settings</p>
 						</div>
 						<div class="card-body">
-							<form>
+							<form method="POST" action="/profile">
+								{{ form.csrf_token }}
 								<div class="form-row">
 									<div class="col">
-										<div class="form-group"><label
-												for="username"><strong>Username</strong></label><input
-												class="form-control" type="text" placeholder="user.name"
-												name="username"></div>
+										<div class="form-group">
+											<label for="email"><strong>Current Email</strong></label>
+											<input class="form-control" type="email" placeholder="user@example.com" name="email">
+										</div>
 									</div>
 									<div class="col">
-										<div class="form-group"><label for="email"><strong>Email
-													Address</strong></label><input class="form-control" type="email"
-												placeholder="user@example.com" name="email"></div>
+										<div class="form-group">
+											<label for="password"><strong>Current Password</strong></label>
+											<input class="form-control" type="password" placeholder="password" name="password">
+										</div>
+									</div>
+								</div>
+								<p>&nbsp;</p>
+								<hr>
+								<p>&nbsp;</p>
+								<div class="form-row">
+									<div class="col">
+										<div class="form-group">
+											<label for="first_name"><strong>New First Name</strong></label>
+											<input class="form-control" type="text" placeholder="John" name="first_name">
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group">
+											<label for="last_name"><strong>New Last Name</strong></label>
+											<input class="form-control" type="text" placeholder="Doe" name="last_name">
+										</div>
 									</div>
 								</div>
 								<div class="form-row">
 									<div class="col">
-										<div class="form-group"><label for="first_name"><strong>First
-													Name</strong></label><input class="form-control" type="text"
-												placeholder="John" name="first_name"></div>
+										<div class="form-group">
+											<label for="new_email"><strong>New Email</strong></label>
+											<input class="form-control" type="email" placeholder="user@example.com" name="new_email">
+										</div>
 									</div>
 									<div class="col">
-										<div class="form-group"><label for="last_name"><strong>Last
-													Name</strong></label><input class="form-control" type="text"
-												placeholder="Doe" name="last_name"></div>
+										<div class="form-group">
+											<label for="new_password"><strong>New Password</strong></label>
+											<input class="form-control" type="password" placeholder="password" name="new_password">
+										</div>
 									</div>
 								</div>
 								<div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save
@@ -82,7 +109,7 @@
 							</form>
 						</div>
 					</div>
-					<div class="card shadow">
+					<!-- <div class="card shadow">
 						<div class="card-header py-3">
 							<p class="text-primary m-0 font-weight-bold">Location Settings</p>
 						</div>
@@ -107,7 +134,7 @@
 										type="submit">Save&nbsp;Settings</button></div>
 							</form>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
