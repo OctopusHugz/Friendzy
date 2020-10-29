@@ -101,3 +101,24 @@ button.link {
 button.link:hover {
   opacity: 0.7;
 }
+
+.card-carousel {
+  display: flex;
+  flex-direction: column;
+}
+
+.interest-card-wrapper {
+  display: flex;
+  /* flex: 1; */
+}
+
+.interest-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 972px) {
+  .desktop-only {
+    display: none;
+  }
+}
