@@ -1,68 +1,68 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="container my-4">
+<div class="container my-4 card-carousel">
 
-    <!-- heading for carousel -->
-    <h2 class="text-center">Find Friendz</h2>
+	<!-- heading for carousel -->
+	<h2 class="text-center">Find Friendz by Interest</h2>
 
-    <hr class="my-4">
+	<hr class="my-4">
 
-    <!--Carousel Wrapper-->
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+	<!--Carousel Wrapper-->
+	<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-        <!--Controls-->
-        <div class="controls-top">
-            <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
-                    class="fa fa-chevron-left"></i></a>
-        </div>
-        <!--/.Controls-->
+		<!--Controls-->
+		<div class="controls-top">
+			<a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+		</div>
+		<!--/.Controls-->
 
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-            <li data-target="#multi-item-example" data-slide-to="1"></li>
-            <li data-target="#multi-item-example" data-slide-to="2"></li>
-        </ol>
-        <!--/.Indicators-->
+		<!--Indicators-->
+		<ol class="carousel-indicators">
+			<li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+			<li data-target="#multi-item-example" data-slide-to="1"></li>
+			<li data-target="#multi-item-example" data-slide-to="2"></li>
+		</ol>
+		<!--/.Indicators-->
 
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
+		<!--Slides-->
+		<div class="carousel-inner" role="listbox">
 
-            <!--Slide template-->
-            {% for list in full_list %}
-            <div class="carousel-item">
-                <div class="row">
-                    {% for interest in list %}
-                    <div class="col-md-4">
-                        <div class="card mb-2">
+			<!--Slide template-->
+			{% for list in full_list %}
+			<div class="carousel-item">
+				<div class="row">
+					{% for interest in list %}
+					<div class="col-md-4 interest-card-wrapper">
+						<div class="card mb-2">
 							<!-- Change href on server to 35.193.115.163/users_search/-->
 							<a class="interest-card" href="{{ url_for('users_search_list', interest_id=interest.id) }}">
-							<img class="card-img-top" src="{{ url_for('static', filename = 'img/interests/' ~ interest.id ~ '.jpg') }}" alt="Card image cap">
-                            <div class="card-body">
-								<h4 class="card-title">{{ interest.name }}</h4>
-								<p>{{ interest.description }}</p>
-							</div>
+								<img class="card-img-top"
+									src="{{ url_for('static', filename = 'img/interests/' ~ interest.id ~ '.jpg') }}"
+									alt="Card image cap">
+								<div class="card-body">
+									<h4 class="card-title">{{ interest.name }}</h4>
+									<p>{{ interest.description }}</p>
+								</div>
 							</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endfor %}
-            <!--Slide template-->
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			{% endfor %}
+			<!--Slide template-->
 
-        </div>
-        <!--/.Slides-->
+		</div>
+		<!--/.Slides-->
 
-        <!--Controls-->
-        <div class="controls-top">
-            <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                    class="fa fa-chevron-right"></i></a>
-        </div>
-        <!--/.Controls-->
+		<!--Controls-->
+		<div class="controls-top">
+			<a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+		</div>
+		<!--/.Controls-->
 
-    </div>
-    <!--/.Carousel Wrapper-->
+	</div>
+	<!--/.Carousel Wrapper-->
 
 
 </div>
