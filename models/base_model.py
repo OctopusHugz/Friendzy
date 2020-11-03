@@ -25,8 +25,10 @@ class BaseModel:
         """returns a dictionary containing all keys/values of the instance"""
         new_dict = self.__dict__.copy()
         new_dict["__class__"] = self.__class__.__name__
+        # Delete _sa_instance_state to avoid AttributeError
         if "_sa_instance_state" in new_dict:
             del new_dict["_sa_instance_state"]
+        # Interests are objects, we only want the name attribute in new_dict
         if "interests" in new_dict:
             del new_dict["interests"]
             interest_list = []
