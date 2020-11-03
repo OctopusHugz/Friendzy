@@ -14,6 +14,7 @@ SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 name = "User"
 
+
 @app.teardown_appcontext
 def close_db(error):
     """ Remove the current SQLAlchemy Session """
@@ -43,6 +44,7 @@ def interests_list():
 def users_search_list(interest_id):
     """ displays a HTML page with a list of users """
     payload = '{"interests": [' + interest_id + ']}'
+    # get users with payload of an interest_id to act as filter
     users = requests.post('http://127.0.0.1:5001/api/v1/users_search',
                           data=payload, headers={'Content-Type': 'application/json'}).json()
     url = 'http://127.0.0.1:5001/api/v1/interests/' + interest_id
@@ -66,7 +68,6 @@ def layout(id):
     user = storage.get(User, id)
     global name
     name = user.first_name + ' ' + user.last_name
-    
 
 
 @app.route('/profile', strict_slashes=False, methods=['GET', 'POST'])
@@ -119,6 +120,7 @@ def our_team():
     # Sort team members by last name
     team_list = sorted(team_list, key=lambda k: k.last_name)
     return render_template("team.html", team_list=team_list, name=name)
+
 
 if __name__ == "__main__":
     """ Main Function """
