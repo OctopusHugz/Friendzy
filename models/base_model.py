@@ -28,7 +28,7 @@ class BaseModel:
         # Delete _sa_instance_state to avoid AttributeError
         if "_sa_instance_state" in new_dict:
             del new_dict["_sa_instance_state"]
-        # Interests come in as objects, we only want the name attribute
+        # Interests are objects, we only want the name attribute in new_dict
         if "interests" in new_dict:
             del new_dict["interests"]
             interest_list = []
