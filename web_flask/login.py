@@ -55,11 +55,17 @@ def login():
             if user.check_password(password):
                 requests.post('http://127.0.0.1:5000/layout/' + user.id,
                           headers={'Content-Type': 'application/json'})
+<<<<<<< HEAD
                 #requests.post('http://127.0.0.1:5000/layout/' + user.id,
                 #          headers={'Content-Type': 'application/json', 
                 #                    'User-Agent': 'viet'})
                 return redirect("https://friendzfor.me/interests_list")
                 #return redirect("http://127.0.0.1:5000/interests_list")
+=======
+                # Use url when running from server, local host in dev environment
+                # return redirect("https://friendzfor.me/interests_list")
+                return redirect("http://127.0.0.1:5000/interests_list")
+>>>>>>> dfce995c80941b849cec1baf35fba966b4b60517
     if request.method == "POST":
         flash('invalid password or email')
     return render_template(
