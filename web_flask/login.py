@@ -55,9 +55,7 @@ def login():
             if user.check_password(password):
                 requests.post('http://127.0.0.1:5000/layout/' + user.id,
                           headers={'Content-Type': 'application/json'})
-                #requests.post('http://127.0.0.1:5000/layout/' + user.id,
-                #          headers={'Content-Type': 'application/json', 
-                #                    'User-Agent': 'viet'})
+                # Use url when running from server, local host in dev environment
                 # return redirect("https://friendzfor.me/interests_list")
                 return redirect("http://127.0.0.1:5000/interests_list")
     if request.method == "POST":

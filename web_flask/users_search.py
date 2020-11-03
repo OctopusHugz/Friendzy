@@ -29,6 +29,7 @@ def interests_list():
     full_list = []
     i = 0
     while i < len(interests):
+        # Show up to three cards at a time in carousel
         if i % 3 == 0 and i != 0:
             full_list.append(test_list)
             test_list = []
@@ -46,20 +47,22 @@ def users_search_list(interest_id):
                           data=payload, headers={'Content-Type': 'application/json'}).json()
     url = 'http://127.0.0.1:5001/api/v1/interests/' + interest_id
     interest_name = requests.get(url).json().get('name')
-    test_list = []
+    short_list = []
     full_list = []
     i = 0
     while i < len(users):
-        test_list.append(users[i])
-        if len(test_list) == 3 or i == len(users) - 1:
-            full_list.append(test_list)
-            test_list = []
+        short_list.append(users[i])
+        # Show up to three cards at a time in carousel
+        if len(short_list) == 3 or i == len(users) - 1:
+            full_list.append(short_list)
+            short_list = []
         i += 1
     return render_template("users.html", full_list=full_list, interest_name=interest_name, name=name)
 
 
 @app.route('/layout/<id>', strict_slashes=False, methods=['GET', 'POST'])
 def layout(id):
+    """Display user name next to avatar"""
     user = storage.get(User, id)
     global name
     name = user.first_name + ' ' + user.last_name
@@ -68,6 +71,7 @@ def layout(id):
 
 @app.route('/profile', strict_slashes=False, methods=['GET', 'POST'])
 def user_profile():
+    """Display and allow edits on profile page"""
     form = UserForm()
     if request.method == "POST":
         first_name = form.first_name.data
@@ -78,6 +82,7 @@ def user_profile():
         new_password = form.new_password.data
         all = storage.all(User)
         for user in all.values():
+            # Checks valid email and allows updated settings
             if email == user.email:
                 if user.check_password(password):
                     if user.email == new_email:
