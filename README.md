@@ -2,7 +2,6 @@
 ### *A better social experience*
 ![Friendzy Screen Shot](https://raw.githubusercontent.com/veeteeran/Friendzy/master/web_flask/static/img/Friendzy_Screenshot.png)
 ---
-<!-- ABOUT THE PROJECT -->
 ## About 
 
 Need a new running partner? Thinking about learning how to juggle? Friendzy is the bridge to connect people and help create real relationships. It is the place to find Friendz who share your interests or find out about new activities. Visit us at [Friendzy](https://friendzfor.me/)
