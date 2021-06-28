@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """ objects that handle all default RestFul API actions for Users """
-from sqlalchemy.sql.sqltypes import String
 from models import storage
 from models.user import User
 from models.form import SignupForm, LoginForm
-from flask import Flask, render_template, flash, redirect, request, url_for
+from flask import Flask, render_template, flash, redirect, request
 import requests
 from flask_cors import CORS
 import os
@@ -23,6 +22,7 @@ def close_db(error):
 @app.route('/landing', strict_slashes=False, methods=['GET'])
 def landing():
     return render_template("landing.html")
+
 
 @app.route('/register', methods=['GET'], strict_slashes=False)
 def register():
@@ -45,7 +45,6 @@ def login():
     GET requests serve sign-up page.
     POST requests validate form & user creation.
     """
-    name = ""
     form = LoginForm()
     email = form.email.data
     password = form.password.data
@@ -54,9 +53,7 @@ def login():
         if email == user.email:
             if user.check_password(password):
                 requests.post('http://127.0.0.1:5000/layout/' + user.id,
-                          headers={'Content-Type': 'application/json'})
-                # Use url when running from server, local host in dev environment
-                # return redirect("https://friendzfor.me/interests_list")
+                              headers={'Content-Type': 'application/json'})
                 return redirect("http://127.0.0.1:5000/interests_list")
     if request.method == "POST":
         flash('invalid password or email')
@@ -96,6 +93,7 @@ def signup():
         new.save()
         return redirect("http://friendzyfor.me/interests_list")
     return render_template('register.html')
+
 
 if __name__ == "__main__":
     """ Main Function """
