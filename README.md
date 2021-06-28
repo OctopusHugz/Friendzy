@@ -2,9 +2,9 @@
 ### *A better social experience*
 ![Friendzy Screen Shot](https://raw.githubusercontent.com/veeteeran/Friendzy/master/web_flask/static/img/Friendzy_Screenshot.png)
 ---
-## About 
+## About
 
-Need a new running partner? Thinking about learning how to juggle? Friendzy is the bridge to connect people and help create real relationships. It is the place to find Friendz who share your interests or find out about new activities. Visit us at [Friendzy](https://friendzfor.me/)
+Need a new running partner? Thinking about learning how to juggle? Friendzy has you covered! Friendzy is the digital bridge to connect people in local communities and help cultivate real relationships. It is the place to find Friendz who share your interests or find out about new activities in your area! Visit us at [Friendzy](https://friendzfor.me/)
 
 This is an end of foundations year portfolio project for [Holberton School](https://www.holbertonschool.com/?utm_source=adwords&utm_medium=search&utm_campaign=sf_search_brand&gclid=Cj0KCQjw59n8BRD2ARIsAAmgPmJMFtU63fQ-v3EGXZ1GhcMDDWvqY2F_QiJT7Kk6oe9YtVoJyxfywiMaApAREALw_wcB). Special thanks to [Derek Webb](https://www.linkedin.com/in/derek-webb-9794251a1) for advising us.
 
