@@ -3,8 +3,7 @@
 from models.user import User
 from models import storage
 from api.v1.views import app_views
-from flask import Flask, abort, jsonify, request
-
+from flask import abort, jsonify, request
 
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
@@ -42,7 +41,7 @@ def users_search():
     # try to get the data sent in headers, if possible
     try:
         new_dict = request.get_json()
-    except:
+    except Exception:
         return {"error": "Not a JSON"}, 400
     # check data type for application/json
     if request.headers['Content-Type'] != 'application/json':
@@ -65,7 +64,8 @@ def users_search():
     if interests_len > 0:
         for user in users:
             for interest in user.interests:
-                if interest.id in interests_list and user.to_dict() not in filter_users_list:
+                if interest.id in interests_list and\
+                        user.to_dict() not in filter_users_list:
                     filter_users_list.append(user.to_dict())
     # if we've successfully filtered users, let's return that filtered list
     if len(filter_users_list) > 0:
