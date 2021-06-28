@@ -17,9 +17,10 @@ def get_interests():
     for interest in all_interests:
         list_interests.append(interest.to_dict())
     return jsonify(list_interests)
-    
 
-@app_views.route('/interests/<interest_id>', methods=['GET'], strict_slashes=False)
+
+@app_views.route('/interests/<interest_id>', methods=['GET'],
+                 strict_slashes=False)
 def get_interests_by_id(interest_id):
     """ Retrieves an interest based on name"""
     all_interests = storage.all(Interest).values()
