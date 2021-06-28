@@ -3,7 +3,7 @@
 from models.interest import Interest
 from models import storage
 from models.user import User
-from flask import Flask, render_template, redirect, request, flash, jsonify
+from flask import Flask, render_template, request, flash
 from models.form import UserForm
 import requests
 import os
@@ -40,13 +40,15 @@ def interests_list():
     return render_template("home.html", full_list=full_list, name=name)
 
 
-@app.route('/users_search/<interest_id>', strict_slashes=False, methods=['POST', 'GET'])
+@app.route('/users_search/<interest_id>', strict_slashes=False,
+           methods=['POST', 'GET'])
 def users_search_list(interest_id):
     """ displays a HTML page with a list of users """
     payload = '{"interests": [' + interest_id + ']}'
     # get users with payload of an interest_id to act as filter
     users = requests.post('http://127.0.0.1:5001/api/v1/users_search',
-                          data=payload, headers={'Content-Type': 'application/json'}).json()
+                          data=payload,
+                          headers={'Content-Type': 'application/json'}).json()
     url = 'http://127.0.0.1:5001/api/v1/interests/' + interest_id
     interest_name = requests.get(url).json().get('name')
     short_list = []
@@ -59,7 +61,8 @@ def users_search_list(interest_id):
             full_list.append(short_list)
             short_list = []
         i += 1
-    return render_template("users.html", full_list=full_list, interest_name=interest_name, name=name)
+    return render_template("users.html", full_list=full_list,
+                           interest_name=interest_name, name=name)
 
 
 @app.route('/layout/<id>', strict_slashes=False, methods=['GET', 'POST'])
@@ -92,18 +95,21 @@ def user_profile():
                         user.last_name = last_name
                         user.update()
                         flash('User Settings updated')
-                        return render_template("profile.html", form=form, name=name)
+                        return render_template("profile.html", form=form,
+                                               name=name)
                     for new in all.values():
                         if new_email == new.email:
-                            flash('A user already exists with that email address.')
-                            return render_template("profile.html", form=form, name=name)
+                            flash('A user already exists with that email.')
+                            return render_template("profile.html", form=form,
+                                                   name=name)
                     user.email = new_email
                     user.password = new_password
                     user.first_name = first_name
                     user.last_name = last_name
                     user.update()
                     flash('User Settings updated')
-                    return render_template("profile.html", form=form, name=name)
+                    return render_template("profile.html", form=form,
+                                           name=name)
         flash('invalid password or email')
     return render_template("profile.html", form=form, name=name)
 
