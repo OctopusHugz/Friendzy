@@ -4,19 +4,19 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import models
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Table, Integer, Boolean
-from sqlalchemy.orm import backref, relationship
+from sqlalchemy.orm import relationship
 import uuid
 
 
 user_interest = Table('user_interest', Base.metadata,
-	                  Column('user_id', String(60),
-			                 ForeignKey('users.id', onupdate='CASCADE',
-				                        ondelete='CASCADE'),
-				             primary_key=True),
-			          Column('interest_id', Integer,
-			                 ForeignKey('interests.id', onupdate='CASCADE',
-						                ondelete='CASCADE'),
-				             primary_key=True))
+                      Column('user_id', String(60),
+                             ForeignKey('users.id', onupdate='CASCADE',
+                                        ondelete='CASCADE'),
+                             primary_key=True),
+                      Column('interest_id', Integer,
+                             ForeignKey('interests.id', onupdate='CASCADE',
+                                        ondelete='CASCADE'),
+                             primary_key=True))
 
 
 class User(BaseModel, Base):
@@ -30,7 +30,7 @@ class User(BaseModel, Base):
     team_member = Column(Boolean, unique=False, default=False, nullable=False)
     interests = relationship("Interest",
                              secondary=user_interest,
-					         viewonly=False)
+                             viewonly=False)
 
     def __init__(self, *args, **kwargs):
         """initializes user"""
