@@ -18,7 +18,7 @@ class DBStorage:
 
     def __init__(self):
         """Instantiate a DBStorage object"""
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
+        self.__engine = create_engine('postgresql://{}:{}@{}/{}'.
                                       format("friendzy_dev",
                                              "friendzy_pwd",
                                              "localhost",
